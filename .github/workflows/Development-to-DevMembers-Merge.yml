@@ -37,12 +37,12 @@ jobs:
           git merge origin/Development --allow-unrelated-histories # Merge the changes from LatestRelease
           git push # Push the changes to the remote repository
 
-      - name: Checkout Dev-STI
+      - name: Checkout Dev-Stig
         uses: actions/checkout@v2
         with:
-          ref: Dev-STI
+          ref: Dev-Stig
 
-      - name: Merge Development branch into Dev-STI branch
+      - name: Merge Development branch into Dev-STig branch
         run: |
           git fetch origin Development # Update the LatestRelease remote tracking branch
           git merge origin/Development --allow-unrelated-histories # Merge the changes from LatestRelease
