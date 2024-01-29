@@ -37,17 +37,6 @@ jobs:
           git merge origin/Development --allow-unrelated-histories # Merge the changes from Latest-Release
           git push # Push the changes to the remote repository
 
-      - name: Checkout Dev-NJB
-        uses: actions/checkout@v2
-        with:
-          ref: Dev-NJB
-
-      - name: Merge Development branch into Dev-NJB branch
-        run: |
-          git fetch origin Development # Update the Latest-Release remote tracking branch
-          git merge origin/Development --allow-unrelated-histories # Merge the changes from LatestRelease
-          git push # Push the changes to the remote repository
-
       - name: Checkout Dev-MAK
         uses: actions/checkout@v2
         with:
@@ -59,12 +48,12 @@ jobs:
           git merge origin/Development --allow-unrelated-histories # Merge the changes from LatestRelease
           git push # Push the changes to the remote repository
 
-      - name: Checkout Dev-STI
+      - name: Checkout Dev-Stig
         uses: actions/checkout@v2
         with:
-          ref: Dev-STI
+          ref: Dev-Stig
 
-      - name: Merge Development branch into Dev-STI branch
+      - name: Merge Development branch into Dev-Stig branch
         run: |
           git fetch origin Development # Update the Latest-Release remote tracking branch
           git merge origin/Development --allow-unrelated-histories # Merge the changes from LatestRelease
