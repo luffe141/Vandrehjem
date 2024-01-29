@@ -1,6 +1,7 @@
 package server
 
 import (
+	"backend/api"
 	"fmt"
 )
 
@@ -14,6 +15,9 @@ func New(addr string, port string) *webserver {
 }
 
 func (server webserver) Start() error {
-	fmt.Println("Starting api server on: " + server.addr + ":" + server.port)
-	return server.Listen()
+	// set up routing
+	mux := api.AddRoutes()
+	// start server (listen on port)
+	fmt.Println("Starting api server on: http://" + server.addr + ":" + server.port)
+	return server.Listen(mux)
 }
