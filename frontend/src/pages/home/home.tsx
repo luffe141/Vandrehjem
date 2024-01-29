@@ -1,14 +1,11 @@
 import './home.css'
-import Hero from '../../components/homepage/hero/Hero.tsx'
+import Tilbyder from '../../components/tilbyder/tilbyder'
 
 function Home() {
 
   return (
     <>
-      <div>
-        <p>test Home component</p>
-      </div>
-      <Hero />
+    <Tilbyder/>
     </>
   )
 }

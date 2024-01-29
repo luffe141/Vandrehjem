@@ -1,0 +1,11 @@
+.tilbyd{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}   
+
+.tilbyd img{
+    width: 300px;
+    margin: 20px;
+}
