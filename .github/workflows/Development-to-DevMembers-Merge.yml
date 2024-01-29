@@ -42,7 +42,7 @@ jobs:
         with:
           ref: Dev-Stig
 
-      - name: Merge Development branch into Dev-STig branch
+      - name: Merge Development branch into Dev-Stig branch
         run: |
           git fetch origin Development # Update the LatestRelease remote tracking branch
           git merge origin/Development --allow-unrelated-histories # Merge the changes from LatestRelease
