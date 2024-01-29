@@ -1,5 +1,11 @@
 #heroDiv {
     width: 100%;
     background-color: aqua;
-    min-height: 200px;
+    height: 600px;
+    margin: 5px 0px;
+}
+
+#heroImg {
+    width: 100%;
+    height: 100%;
 }
