@@ -1,7 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"backend/server"
+	"fmt"
+)
 
 func main() {
-	fmt.Println("vandrerhjem projekt")
+	err := server.Start()
+
+	fmt.Println(err)
 }
