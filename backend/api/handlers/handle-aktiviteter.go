@@ -1,4 +1,4 @@
-package api
+package handlers
 
 import (
 	"backend/database/mongodb"
@@ -9,9 +9,24 @@ import (
 )
 
 type Aktiviteter struct {
+	Id   string
 	Name string
 	Age  int
 	img  string
+}
+
+func HandleGetIdentifierAktiviteter(response http.ResponseWriter, request *http.Request) {
+	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "Aktiviteter", "name")
+	defer store.Close()
+
+	data, err := store.ReadData(bson.M{})
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	fmt.Println("hej med dig")
+	fmt.Println(data)
+	_, _ = fmt.Fprint(response, data)
 }
 
 func HandleGetAktiviteter(response http.ResponseWriter, request *http.Request) {
@@ -56,16 +71,20 @@ func HandlePostAktiviteter(response http.ResponseWriter, request *http.Request) 
 
 }
 
-func HandleDelteAktiviteter(response http.ResponseWriter, request *http.Request) {
+func HandleDeleteAktiviteter(response http.ResponseWriter, request *http.Request) {
 	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "Aktiviteter", "name")
 	defer store.Close()
 
-	// Create
-	err := store.CreateData(Aktiviteter{Name: "Lars", Age: 29})
+	id := request.PathValue("id")
+
+	filter := bson.M{
+		"_id": id,
+	}
+	err := store.DeleteData(filter)
 	if err != nil {
 		_, _ = fmt.Fprint(response, err)
 	} else {
-		_, _ = fmt.Fprint(response, "you have succesfully added a new user")
+		_, _ = fmt.Fprint(response, "you have succesfully deleted a user")
 	}
 
 }

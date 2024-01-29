@@ -1,6 +1,7 @@
 package api
 
 import (
+	"backend/api/handlers"
 	"backend/api/users"
 	"net/http"
 )
@@ -10,11 +11,11 @@ func AddRoutes() *http.ServeMux {
 
 	// routes
 	mux = apiBaseRoutes(mux)
-	mux.HandleFunc("GET /api/activities/", HandleGetAktiviteter)
-	mux.HandleFunc("GET /api/activities/{id}/", RouteDontExist)
-	mux.HandleFunc("POST /api/activities/", RouteDontExist)
-	mux.HandleFunc("PUT /api/activities/{id}/", RouteDontExist)
-	mux.HandleFunc("DELETE /api/activities/{id}/", RouteDontExist)
+	mux.HandleFunc("GET /api/activities/", handlers.HandleGetAktiviteter)
+	mux.HandleFunc("GET /api/activities/{id}/", handlers.HandleGetAktiviteter)
+	mux.HandleFunc("POST /api/activities/", handlers.HandlePostAktiviteter)
+	mux.HandleFunc("PUT /api/activities/{id}/", handlers.HandlePutAktiviteter)
+	mux.HandleFunc("DELETE /api/activities/{id}/", handlers.HandleDeleteAktiviteter)
 
 	mux = exampleRoutes(mux)
 	return mux
