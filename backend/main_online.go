@@ -1,4 +1,4 @@
-//go:build !online
+//go:build online
 
 package main
 
