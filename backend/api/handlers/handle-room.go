@@ -14,7 +14,7 @@ type Rooms struct {
 	img  string
 }
 
-func handleGetRoom(response http.ResponseWriter, request *http.Request) {
+func HandleGetRoom(response http.ResponseWriter, request *http.Request) {
 	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "Rooms", "name")
 	defer store.Close()
 
@@ -28,7 +28,7 @@ func handleGetRoom(response http.ResponseWriter, request *http.Request) {
 	_, _ = fmt.Fprint(response, data)
 }
 
-func handlePostRoom(response http.ResponseWriter, request *http.Request) {
+func HandlePostRoom(response http.ResponseWriter, request *http.Request) {
 	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "Rooms", "name")
 	defer store.Close()
 
@@ -42,7 +42,7 @@ func handlePostRoom(response http.ResponseWriter, request *http.Request) {
 
 }
 
-func handlePutRoom(response http.ResponseWriter, request *http.Request) {
+func HandlePutRoom(response http.ResponseWriter, request *http.Request) {
 	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "Rooms", "name")
 	defer store.Close()
 
@@ -56,7 +56,7 @@ func handlePutRoom(response http.ResponseWriter, request *http.Request) {
 
 }
 
-func handleDeleteRoom(response http.ResponseWriter, request *http.Request) {
+func HandleDeleteRoom(response http.ResponseWriter, request *http.Request) {
 	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "Rooms", "name")
 	defer store.Close()
 

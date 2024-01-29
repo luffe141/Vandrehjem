@@ -14,7 +14,7 @@ type Slider struct {
 	img  string
 }
 
-func handleGetSlider(response http.ResponseWriter, request *http.Request) {
+func HandleGetSlider(response http.ResponseWriter, request *http.Request) {
 	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "Slider", "name")
 	defer store.Close()
 
@@ -28,7 +28,7 @@ func handleGetSlider(response http.ResponseWriter, request *http.Request) {
 	_, _ = fmt.Fprint(response, data)
 }
 
-func handlePutSlider(response http.ResponseWriter, request *http.Request) {
+func HandlePutSlider(response http.ResponseWriter, request *http.Request) {
 	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "Slider", "name")
 	defer store.Close()
 
@@ -42,7 +42,7 @@ func handlePutSlider(response http.ResponseWriter, request *http.Request) {
 
 }
 
-func hadnlePostSlider(response http.ResponseWriter, request *http.Request) {
+func HandlePostSlider(response http.ResponseWriter, request *http.Request) {
 	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "Slider", "name")
 	defer store.Close()
 
@@ -56,7 +56,7 @@ func hadnlePostSlider(response http.ResponseWriter, request *http.Request) {
 
 }
 
-func handelDeleteSlider(response http.ResponseWriter, request *http.Request) {
+func HandelDeleteSlider(response http.ResponseWriter, request *http.Request) {
 	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "Slider", "name")
 	defer store.Close()
 

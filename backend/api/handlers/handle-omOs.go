@@ -14,7 +14,7 @@ type OmOs struct {
 	img  string
 }
 
-func handleGetOmOs(response http.ResponseWriter, request *http.Request) {
+func HandleGetOmOs(response http.ResponseWriter, request *http.Request) {
 	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "OmOs", "name")
 	defer store.Close()
 
@@ -28,7 +28,7 @@ func handleGetOmOs(response http.ResponseWriter, request *http.Request) {
 	_, _ = fmt.Fprint(response, data)
 }
 
-func handlePutOmOs(response http.ResponseWriter, request *http.Request) {
+func HandlePutOmOs(response http.ResponseWriter, request *http.Request) {
 	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "OmOs", "name")
 	defer store.Close()
 
@@ -42,7 +42,7 @@ func handlePutOmOs(response http.ResponseWriter, request *http.Request) {
 
 }
 
-func hadnlePostOmOs(response http.ResponseWriter, request *http.Request) {
+func HandlePostOmOs(response http.ResponseWriter, request *http.Request) {
 	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "OmOs", "name")
 	defer store.Close()
 
@@ -56,7 +56,7 @@ func hadnlePostOmOs(response http.ResponseWriter, request *http.Request) {
 
 }
 
-func handleDelteOmOs(response http.ResponseWriter, request *http.Request) {
+func HandleDelteOmOs(response http.ResponseWriter, request *http.Request) {
 	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "OmOs", "name")
 	defer store.Close()
 

@@ -14,7 +14,7 @@ type Aktiviteter struct {
 	img  string
 }
 
-func handleGetAktiviteter(response http.ResponseWriter, request *http.Request) {
+func HandleGetAktiviteter(response http.ResponseWriter, request *http.Request) {
 	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "Aktiviteter", "name")
 	defer store.Close()
 
@@ -28,7 +28,7 @@ func handleGetAktiviteter(response http.ResponseWriter, request *http.Request) {
 	_, _ = fmt.Fprint(response, data)
 }
 
-func handlePutAktiviteter(response http.ResponseWriter, request *http.Request) {
+func HandlePutAktiviteter(response http.ResponseWriter, request *http.Request) {
 	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "Aktiviteter", "name")
 	defer store.Close()
 
@@ -42,7 +42,7 @@ func handlePutAktiviteter(response http.ResponseWriter, request *http.Request) {
 
 }
 
-func hadnlePostAktiviteter(response http.ResponseWriter, request *http.Request) {
+func HandlePostAktiviteter(response http.ResponseWriter, request *http.Request) {
 	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "Aktiviteter", "name")
 	defer store.Close()
 
@@ -56,7 +56,7 @@ func hadnlePostAktiviteter(response http.ResponseWriter, request *http.Request) 
 
 }
 
-func handleDelteAktiviteter(response http.ResponseWriter, request *http.Request) {
+func HandleDelteAktiviteter(response http.ResponseWriter, request *http.Request) {
 	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "Aktiviteter", "name")
 	defer store.Close()
 

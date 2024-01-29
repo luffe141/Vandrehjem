@@ -10,7 +10,7 @@ func AddRoutes() *http.ServeMux {
 
 	// routes
 	mux = apiBaseRoutes(mux)
-	mux.HandleFunc("GET /api/activities/", RouteDontExist)
+	mux.HandleFunc("GET /api/activities/", HandleGetAktiviteter)
 	mux.HandleFunc("GET /api/activities/{id}/", RouteDontExist)
 	mux.HandleFunc("POST /api/activities/", RouteDontExist)
 	mux.HandleFunc("PUT /api/activities/{id}/", RouteDontExist)

@@ -14,7 +14,7 @@ type Reviews struct {
 	img  string
 }
 
-func handleGetReview(response http.ResponseWriter, request *http.Request) {
+func HandleGetReview(response http.ResponseWriter, request *http.Request) {
 	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "Review", "name")
 	defer store.Close()
 
@@ -28,7 +28,7 @@ func handleGetReview(response http.ResponseWriter, request *http.Request) {
 	_, _ = fmt.Fprint(response, data)
 }
 
-func handlePutReview(response http.ResponseWriter, request *http.Request) {
+func HandlePutReview(response http.ResponseWriter, request *http.Request) {
 	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "Review", "name")
 	defer store.Close()
 
@@ -42,7 +42,7 @@ func handlePutReview(response http.ResponseWriter, request *http.Request) {
 
 }
 
-func hadnlePostReview(response http.ResponseWriter, request *http.Request) {
+func HandlePostReview(response http.ResponseWriter, request *http.Request) {
 	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "Review", "name")
 	defer store.Close()
 
@@ -56,7 +56,7 @@ func hadnlePostReview(response http.ResponseWriter, request *http.Request) {
 
 }
 
-func handleDelteReview(response http.ResponseWriter, request *http.Request) {
+func HandleDelteReview(response http.ResponseWriter, request *http.Request) {
 	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "Review", "name")
 	defer store.Close()
 

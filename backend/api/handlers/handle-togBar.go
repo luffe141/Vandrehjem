@@ -14,7 +14,7 @@ type togBar struct {
 	img  string
 }
 
-func handleGettogBar(response http.ResponseWriter, request *http.Request) {
+func HandleGettogBar(response http.ResponseWriter, request *http.Request) {
 	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "togBar", "name")
 	defer store.Close()
 
@@ -28,7 +28,7 @@ func handleGettogBar(response http.ResponseWriter, request *http.Request) {
 	_, _ = fmt.Fprint(response, data)
 }
 
-func handlePuttogBar(response http.ResponseWriter, request *http.Request) {
+func HandlePuttogBar(response http.ResponseWriter, request *http.Request) {
 	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "togBar", "name")
 	defer store.Close()
 
@@ -42,7 +42,7 @@ func handlePuttogBar(response http.ResponseWriter, request *http.Request) {
 
 }
 
-func hadnlePosttogBar(response http.ResponseWriter, request *http.Request) {
+func HandlePosttogBar(response http.ResponseWriter, request *http.Request) {
 	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "togBar", "name")
 	defer store.Close()
 
@@ -56,7 +56,7 @@ func hadnlePosttogBar(response http.ResponseWriter, request *http.Request) {
 
 }
 
-func handleDeltetogBar(response http.ResponseWriter, request *http.Request) {
+func HandleDeltetogBar(response http.ResponseWriter, request *http.Request) {
 	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "togBar", "name")
 	defer store.Close()
 

@@ -14,7 +14,7 @@ type Galleri struct {
 	img  string
 }
 
-func handleGetGalleri(response http.ResponseWriter, request *http.Request) {
+func HandleGetGalleri(response http.ResponseWriter, request *http.Request) {
 	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "Galleri", "name")
 	defer store.Close()
 
@@ -28,7 +28,7 @@ func handleGetGalleri(response http.ResponseWriter, request *http.Request) {
 	_, _ = fmt.Fprint(response, data)
 }
 
-func handlePutGalleri(response http.ResponseWriter, request *http.Request) {
+func HandlePutGalleri(response http.ResponseWriter, request *http.Request) {
 	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "Galleri", "name")
 	defer store.Close()
 
@@ -42,7 +42,7 @@ func handlePutGalleri(response http.ResponseWriter, request *http.Request) {
 
 }
 
-func hadnlePostGalleri(response http.ResponseWriter, request *http.Request) {
+func HandlePostGalleri(response http.ResponseWriter, request *http.Request) {
 	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "Galleri", "name")
 	defer store.Close()
 
@@ -56,7 +56,7 @@ func hadnlePostGalleri(response http.ResponseWriter, request *http.Request) {
 
 }
 
-func handleDelteGalleri(response http.ResponseWriter, request *http.Request) {
+func HandleDelteGalleri(response http.ResponseWriter, request *http.Request) {
 	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "Galleri", "name")
 	defer store.Close()
 

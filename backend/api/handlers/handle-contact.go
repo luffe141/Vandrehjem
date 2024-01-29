@@ -14,7 +14,7 @@ type Contact struct {
 	img  string
 }
 
-func handleGetContact(response http.ResponseWriter, request *http.Request) {
+func HandleGetContact(response http.ResponseWriter, request *http.Request) {
 	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "Contact", "name")
 	defer store.Close()
 
@@ -28,7 +28,7 @@ func handleGetContact(response http.ResponseWriter, request *http.Request) {
 	_, _ = fmt.Fprint(response, data)
 }
 
-func handlePutContact(response http.ResponseWriter, request *http.Request) {
+func HandlePutContact(response http.ResponseWriter, request *http.Request) {
 	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "Contact", "name")
 	defer store.Close()
 
@@ -42,7 +42,7 @@ func handlePutContact(response http.ResponseWriter, request *http.Request) {
 
 }
 
-func hadnlePostContact(response http.ResponseWriter, request *http.Request) {
+func HandlePostContact(response http.ResponseWriter, request *http.Request) {
 	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "Contact", "name")
 	defer store.Close()
 
@@ -56,7 +56,7 @@ func hadnlePostContact(response http.ResponseWriter, request *http.Request) {
 
 }
 
-func handleDelteContact(response http.ResponseWriter, request *http.Request) {
+func HandleDelteContact(response http.ResponseWriter, request *http.Request) {
 	store := mongodb.NewStorage("mongodb://localhost:27017", "Vandrerhjem", "Contact", "name")
 	defer store.Close()
 
