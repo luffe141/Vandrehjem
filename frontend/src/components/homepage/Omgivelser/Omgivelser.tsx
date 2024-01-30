@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styles from './Omgivelser.module.css'
 import ImageSlider from './ImageSlider';
 
