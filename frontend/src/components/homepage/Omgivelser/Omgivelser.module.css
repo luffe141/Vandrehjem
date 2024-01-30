@@ -1,0 +1,25 @@
+.OmgivelserDiv h1 {
+    text-align: center;
+}
+
+.imageSliderDiv {
+    margin: 5px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.galleryImgContainer {
+    width: 300px;
+    height: 360px;
+    background-color: #ffffff;
+}
+
+.galleryImgContainer p {
+    text-align: center;
+}
+
+.galleryBtn {
+    height: 40px;
+    align-self: center;
+}
