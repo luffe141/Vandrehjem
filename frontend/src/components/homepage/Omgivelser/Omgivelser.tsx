@@ -6,7 +6,7 @@ import ImageSlider from './ImageSlider';
 
 
 const Omgivelser = () => {
-  const images = [
+  const images: string[]  = [
     'https://picsum.photos/id/237/300/300',
     'https://picsum.photos/id/49/300/300',
     'https://picsum.photos/id/159/300/300',
