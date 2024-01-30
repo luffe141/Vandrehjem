@@ -1,41 +1,45 @@
 import { useState } from "react";
 import styles from "./navbar.module.css";
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-></link>;
+
+
 
 function Navbar() {
-  const [isLinksVisible, setIsLinksVisible] = useState(true);
+  
+  const [isNavVisible, setNavVisibility] = useState(false);
 
-  const toggleLinks = () => {
-    setIsLinksVisible(!isLinksVisible);
-  };
+  const toggleNav = () => {
+		setNavVisibility(!isNavVisible);
+		if(isNavVisible) {
+			document.getElementById("myLinks").style.display = "none"
+		} else {
+			document.getElementById("myLinks").style.display = "flex"
+		}
+	};
 
   return (
+
+
     <nav>
-		
-      <div className={styles.topnav}>
-        <a href="#home" className={styles.active}>
-          Logo
-        </a>
 
-        {/*<!-- Navigation links (hidden by default) -->*/}
-        <div
-          id="myLinks"
-          style={{ display: isLinksVisible ? "block" : "none" }}>
-          <a href="#">test 1</a>
-          <a href="#">test 2</a>
-        </div>
+				<div className={styles.topnav}>
+					<a href="/" className={styles.logo}><img src="logo.svg" alt="logo"/></a>
 
-        {/*<!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->*/}
-        <button onClick={toggleLinks} className={styles.icon}>
-          Toggle Links
-        </button>
-        <i className="fa fa-bars"></i>
-      </div>
+					{/*<!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->*/}
+					<a className={styles.icon} onClick={toggleNav}>
+						<img src="burger-icon.svg" alt="burger_menu_icon"/>
+					</a>
 
-    </nav>
+					{/*<!-- Navigation links (hidden by default) -->*/}
+					<div id="myLinks" className={styles.myLinks}>
+						<a href="/">Forside</a>
+						<a href="/">Releases</a>
+						<a href="/">Find os</a>
+					</div>
+				</div>
+
+			</nav>
+
+
   );
 }
 

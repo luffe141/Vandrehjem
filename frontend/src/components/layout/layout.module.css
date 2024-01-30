@@ -1,4 +1,8 @@
 header {
-    height: 80px;
+    min-height: 80px;
+    height: fit-content;
     background-color: #F8E3C6;
+	width: 100%;
+	margin: 0;
+	padding: 0;
 }
