@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Navbar from "../navbar/navbar.tsx";
+import './layout.module.css'
 
 interface AppLayoutProps {
 	children: React.ReactNode;
