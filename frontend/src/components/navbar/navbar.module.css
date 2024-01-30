@@ -24,10 +24,11 @@
 .topnav .myLinks {
 	display: flex;
 	grid-column: 1/4;
+	gap: 10px;
 	margin: 20px auto 0px auto;
 	width: 100%;
 	justify-content: center;
-    padding: 5px 0px 5px 0px;
+    padding: 15px 0px 15px 0px;
     background-color: #F8E3C6;
 }
 
