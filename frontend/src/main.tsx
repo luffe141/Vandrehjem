@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './global.css'
 import Home from "./pages/home/home.jsx";
 import Layout from "./components/layout/layout.tsx";
+import Oplevelse from "../src/oplevelse/page.tsx"
 
 const rootElement:HTMLElement | null = document.getElementById('root');
 
@@ -19,16 +20,16 @@ if (rootElement) {
 							</Layout>
 						}
 					/>
-					{/*
+					
 					<Route
-						path="/about"
+						path="/oplevelse"
 						element={
 							<Layout>
-								<About />
+								<Oplevelse />
 							</Layout>
 						}
 					/>
-					*/}
+					
 					{/* Add more routes for additional pages */}
 				</Routes>
 			</>
