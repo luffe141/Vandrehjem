@@ -5,6 +5,7 @@ import Omgivelser from '../../components/homepage/Omgivelser/Omgivelser.tsx'
 import Rooms from '../../components/homepage/Rooms/Rooms.tsx'
 import Oplev from '../../components/oplevelse/oplev.tsx'
 import Event from '../../components/events/event.tsx'
+import Footer from '../../components/footer/footer.tsx'
 
 function Home() {
 
@@ -16,6 +17,7 @@ function Home() {
     <Tilbyder/>
     <Oplev/>
     <Event/>
+    <Footer/>
     </>
   )
 }
