@@ -3,7 +3,7 @@ import styles from "./Rooms.module.css";
 
 const Rooms = () => {
   return (
-<<<<<<< HEAD
+
     <div>
       <h1 className={styles.h1}>Rooms</h1>
       <div className={styles.container}>
@@ -34,12 +34,12 @@ const Rooms = () => {
     </div>
   );
 };
-=======
+
     <div className={styles.roomDiv}>
         <h1>Rooms</h1>
     </div>
-  )
-}
->>>>>>> b6ea2fc7c1d116a222c46c41e22c758088e0169b
+  
+
+
 
 export default Rooms;
