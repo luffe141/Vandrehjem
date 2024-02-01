@@ -68,6 +68,5 @@ func parseRequestData(request *http.Request) (map[string]any, error) {
 		}
 	}
 
-	fmt.Println("final", data)
 	return data, nil
 }
