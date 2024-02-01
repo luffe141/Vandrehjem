@@ -14,6 +14,7 @@ const Vaerelser = () => {
         <ImageSliderTwo images={images} />
       </div>
 
+
       <div className={styles.bookingContainer}>
         <div className={styles.bookingGreyBG}>
           <p>1 - 4 personers værelse</p>
@@ -33,6 +34,7 @@ const Vaerelser = () => {
           <p>TJEK TILGÆNGELIGHED</p>
         </div>
       </div>
+
 
       <div className={styles.roomInfo}>
         <p>
@@ -56,6 +58,7 @@ const Vaerelser = () => {
           i huset.
         </p>
       </div>
+
 
       <div className={styles.infoBoxes}>
         <div className={styles.paragraphBox}>

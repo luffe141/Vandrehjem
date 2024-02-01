@@ -18,7 +18,7 @@ const ImageSliderTwo = ({ images }) => {
       <div className={styles.imageSliderDiv}>
         <div className={styles.galleryImgContainer}>
         <img className={styles.galleryBtn} onClick={nextSlide} src="down-arrow.png" alt="arrow" />
-        <img src={images[currentImageIndex]} alt={`Slide ${currentImageIndex + 1}`} />
+        <img id={styles.galleryImg} src={images[currentImageIndex]} alt={`Slide ${currentImageIndex + 1}`} />
         <img className={styles.galleryBtn} onClick={prevSlide} src="down-arrow.png" alt="arrow" />
         </div>
       </div>

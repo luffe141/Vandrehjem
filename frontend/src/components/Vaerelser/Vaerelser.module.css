@@ -108,6 +108,7 @@
     height: fit-content;
     border: black solid 1px ;
     margin:  5px;
+    background-color: #d5c7b6;
 }
 
 .paragraphBox {
@@ -136,7 +137,7 @@
 
 .iconTextBox {
     width: 290px;
-    background-color: #d5c7b6;
+    
 }
 
 .paragraphBox p {
@@ -152,11 +153,70 @@
 
 /* Tablet størrelse */
 @media screen and (max-width: 768px) {
+    .imageSliderDiv {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
 
+    .galleryBtn {
+        color: white;
+    }
+    
+
+    .galleryImgContainer :nth-child(2) {
+        width: 100vw;
+        order: 1;
+    }
+
+    .galleryImgContainer :nth-child(1) {
+        order: 2;
+    }
+
+    .galleryImgContainer :nth-child(3) {
+        order: 3;
+    }
+
+    .bookingContainer {
+        order: 2;
+        min-height: 243px;
+    }
 }
 
 
 /* Mobil størrelse */
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 431px) {
+    .imageSliderDiv {
+        height: fit-content;
+    }
 
+    .galleryImgContainer :nth-child(1) {
+        display: none;
+    }
+
+    .bookingContainer {
+        width: 100%;
+        height: fit-content;
+    }
+
+    .bookingContainer p:not(:first-of-type), .bookingContainer form, .bookingContainer input {
+        width: 98%;
+        margin: 10px auto;
+    }
+
+    .bookingContainer :nth-child(3) p {
+        padding: 15px 0px;
+    }
+
+    .bookingGreyBG {
+        padding: 5px;
+    }
+
+    .infoBoxes {
+        width: 100%;
+    }
+
+    .paragraphBox {
+        width: 100%;
+    }
 }
