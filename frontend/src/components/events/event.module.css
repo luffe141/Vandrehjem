@@ -1,0 +1,26 @@
+.event{
+    text-align: center;
+    font-size: 50px;
+}
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.kommende img{
+    width: 600px;
+    margin: 45px;
+    margin-top: 0px;
+}
+
+.kommendeTxt{
+    text-align: center;
+    font-size: 30px;
+}
+
+.nuEvents{
+    text-align: center;
+    font-size: 30px;
+}

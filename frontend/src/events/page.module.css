@@ -1,0 +1,68 @@
+.heroImg{
+    max-width: 100%;
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.herotext{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+}
+.heroHr1{
+    width: 500px;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.heroHr2{
+    width: 500px;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+h2{
+    text-align:  center;
+}
+h3{
+    text-align: center;
+}
+.eventHr{
+    width: 200px;
+}
+.leftImgContainer{
+    display: flex;
+    flex-direction: column;
+    
+}
+.leftImg{
+    width: 300px;
+}
+.eventInfo{
+    width: 500px;
+   
+}
+.rightImgContainer{
+    display: flex;
+    flex-direction: column;
+}
+.rightImg{
+    width: 300px;
+}
+.container{
+    display: flex;
+    justify-content: center;
+}
+.eventText{
+   margin: 0 auto;
+   max-width: 300px;
+    text-align: center;
+}
+.eventCurrentBtn{
+    
+}
