@@ -43,7 +43,7 @@ func NewStorage(uri string, database string, collection string, uniqueFields ...
 	return &Storage{Client: client, Database: db, Collection: col, Ctx: ctx, Cancel: cancel}
 }
 
-func (storage *Storage) CreateData(data interface{}) error {
+func (storage *Storage) CreateData(data any) error {
 	_, err := storage.Collection.InsertOne(storage.Ctx, data)
 	return err
 }
