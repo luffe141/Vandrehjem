@@ -1,0 +1,29 @@
+.djursContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.katContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.nationalContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.skandiContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.reeContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.gjerrildContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
