@@ -75,12 +75,10 @@
 	height: 100%;
 }
 
-
 /* Add a grey background color on mouse-over */
 .topnav .icon:hover {
 	opacity: 1;
 }
-
 
 /* Style the active link (or home/logo) */
 a.logo {
@@ -90,7 +88,6 @@ a.logo {
 	padding: 0;
 }
 
-
 @media screen and (max-width: 768px) {
 	.topnav a.icon {
 		display: block;
@@ -99,6 +96,11 @@ a.logo {
 	.topnav .myLinks {
 		display: none;
 		flex-direction: column;
+		gap: 1px;
+	}
+
+	.topnav .myLinks :last-child {
+		background-color: #bb9b5c;
 	}
 
 	.title {
