@@ -6,8 +6,10 @@
     margin: 5px auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-around;   
 }
+
+ 
 
 .galleryImgContainer {
     width: 300px;
@@ -24,4 +26,10 @@
     height: 40px;
     align-self: center;
     background-color: #D0A98F;
+}
+
+.galleryBtn:hover{
+    background-color: #805941;
+    cursor: pointer;
+    
 }
