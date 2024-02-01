@@ -1,0 +1,44 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(1fr, 3);
+  margin-left: 30px;
+}
+
+.kontakt {
+  grid-column: 1/2;
+}
+
+.links {
+  grid-column: 2/3;
+}
+
+.sponsors {
+  grid-column: 3/4;
+  display: flex;
+  justify-content: center;
+}
+
+.sponsors img{
+    margin: 5px;
+}
+
+.smspons {
+    display: flex;
+  flex-direction: column;
+}
+
+.sponsorH{
+    text-align: center;
+}
+
+.socials {
+  grid-column: 4/5;
+}
+
+.copyright {
+  grid-column: 3/4;
+}
+
+.sponsors img {
+  width: 200px;
+}
