@@ -4,9 +4,28 @@ import "./global.css";
 import Home from "./pages/home/home.jsx";
 import Layout from "./components/layout/layout.tsx";
 
+import Event from "../src/events/page.tsx";
+
+import Oplevelse from "../src/oplevelse/page.tsx"
+
+
 const rootElement: HTMLElement | null = document.getElementById("root");
 
 if (rootElement) {
+  createRoot(rootElement).render(
+    <Router>
+      <>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Layout>
+                <Home />
+              </Layout>
+            }
+          />
+          {/* {
+
 	createRoot(rootElement).render(
 		<Router>
 			<>
@@ -19,7 +38,7 @@ if (rootElement) {
 							</Layout>
 						}
 					/>
-					{/*
+					
 					<Route
 						path="/oplevelse"
 						element={
@@ -28,10 +47,24 @@ if (rootElement) {
 							</Layout>
 						}
 					/>
-					*/}
-					{/* Add more routes for additional pages */}
-				</Routes>
-			</>
-		</Router>
-	);
+
+					} */}
+          {/* Add more routes for additional pages */}
+          {
+            <Route
+              path="/events"
+              element={
+                <Layout>
+                  <Event />
+                </Layout>
+              }
+            />
+          }
+        </Routes>
+      </>
+    </Router>
+  );
 }
+
+				
+
