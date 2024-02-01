@@ -38,8 +38,6 @@ const Rooms = () => {
     <div className={styles.roomDiv}>
         <h1>Rooms</h1>
     </div>
-  
-
 
 
 export default Rooms;
