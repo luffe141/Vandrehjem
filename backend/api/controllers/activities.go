@@ -6,15 +6,24 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
+type Activity struct {
+	_Id  string
+	Name string
+	Age  int
+	Img  string
+}
+
+var collectionName = "activity"
+
 func GetActivities() (any, error) {
-	store := mongodb.NewStorage("mongodb://localhost:27017", databaseName, activityCollection, "name")
+	store := mongodb.NewStorage("mongodb://localhost:27017", databaseName, collectionName, "name")
 	defer store.Close()
 
 	return store.ReadData(bson.M{})
 }
 
 func GetActivity(id string) (any, error) {
-	store := mongodb.NewStorage("mongodb://localhost:27017", databaseName, activityCollection, "name")
+	store := mongodb.NewStorage("mongodb://localhost:27017", databaseName, collectionName, "name")
 	defer store.Close()
 
 	objectID, err := primitive.ObjectIDFromHex(id)
@@ -30,7 +39,7 @@ func GetActivity(id string) (any, error) {
 }
 
 func PostActivity(data any) error {
-	store := mongodb.NewStorage("mongodb://localhost:27017", databaseName, activityCollection, "name")
+	store := mongodb.NewStorage("mongodb://localhost:27017", databaseName, collectionName, "name")
 	defer store.Close()
 
 	return store.CreateData(data)
@@ -42,7 +51,7 @@ func PutActivity(id string, data any) error {
 		return err
 	}
 
-	store := mongodb.NewStorage("mongodb://localhost:27017", databaseName, activityCollection, "name")
+	store := mongodb.NewStorage("mongodb://localhost:27017", databaseName, collectionName, "name")
 	defer store.Close()
 
 	filter := bson.M{
@@ -57,7 +66,7 @@ func PutActivity(id string, data any) error {
 }
 
 func DeleteActivity(id string) error {
-	store := mongodb.NewStorage("mongodb://localhost:27017", databaseName, activityCollection, "name")
+	store := mongodb.NewStorage("mongodb://localhost:27017", databaseName, collectionName, "name")
 	defer store.Close()
 	objectID, err := primitive.ObjectIDFromHex(id)
 	if err != nil {
