@@ -17,7 +17,6 @@ function Home() {
     <Tilbyder/>
     <Oplev/>
     <Event/>
-    <Footer/>
     </>
   )
 }
