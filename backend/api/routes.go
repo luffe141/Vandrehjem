@@ -11,11 +11,11 @@ func AddRoutes() *http.ServeMux {
 
 	// routes
 	mux = apiBaseRoutes(mux)
-	mux.HandleFunc("GET /api/activities/", handlers.HandleGetAktiviteter)
-	mux.HandleFunc("GET /api/activities/{id}/", handlers.HandleGetAktiviteter)
-	mux.HandleFunc("POST /api/activities/", handlers.HandlePostAktiviteter)
-	mux.HandleFunc("PUT /api/activities/{id}/", handlers.HandlePutAktiviteter)
-	mux.HandleFunc("DELETE /api/activities/{id}/", handlers.HandleDeleteAktiviteter)
+	mux.HandleFunc("GET /api/activities/", handlers.HandleGetActivities)
+	mux.HandleFunc("GET /api/activities/{id}/", handlers.HandleGetByIdActivities)
+	mux.HandleFunc("POST /api/activities/", handlers.HandlePostActivities)
+	mux.HandleFunc("PUT /api/activities/{id}/", handlers.HandlePutActivities)
+	mux.HandleFunc("DELETE /api/activities/{id}/", handlers.HandleDeleteActivities)
 
 	mux = exampleRoutes(mux)
 	return mux
