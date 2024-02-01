@@ -32,8 +32,9 @@ function Navbar() {
 					{/*<!-- Navigation links (hidden by default) -->*/}
 					<div id="myLinks" className={styles.myLinks}>
 						<a href="/">Forside</a>
-						<a href="/">Releases</a>
-						<a href="/">Find os</a>
+						<a href="/Detsker">Det sker</a>
+						<a href="/Vaerelser">Vaerelser</a>
+						<a href="/Oplevelse">Oplevelser</a>
 					</div>
 				</div>
 
