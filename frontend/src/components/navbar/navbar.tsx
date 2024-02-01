@@ -35,6 +35,11 @@ function Navbar() {
 						<a href="/Detsker">Det sker</a>
 						<a href="/Vaerelser">Vaerelser</a>
 						<a href="/Oplevelse">Oplevelser</a>
+						<a href="/Restaurant">Restaurant</a>
+						<a href="/Galleri">Galleri</a>
+						<a href="/Omos">Om os</a>
+						<a href="/Kontakt">Kontakt</a>
+						<a href="/Bestilonline">Bestil Online</a>
 					</div>
 				</div>
 
