@@ -2,7 +2,6 @@ package mongodb
 
 import (
 	"backend/database/mongodb"
-	"errors"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
@@ -23,10 +22,6 @@ type event struct {
 func mapToevent(dataMap map[string]any) (*event, error) {
 	var event event
 
-	// Check if required keys exist
-	if dataMap["name"] == nil || dataMap["age"] == nil || dataMap["img"] == nil {
-		return nil, errors.New("missing required key in dataMap")
-	}
 	/*
 		// Iterate over provided map
 		for key, value := range dataMap {

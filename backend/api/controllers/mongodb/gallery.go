@@ -2,7 +2,6 @@ package mongodb
 
 import (
 	"backend/database/mongodb"
-	"errors"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
@@ -18,11 +17,6 @@ type Gallery struct {
 
 func mapToGallery(dataMap map[string]any) (*Gallery, error) {
 	var gallery Gallery
-
-	// Check if required keys exist
-	if dataMap["name"] == nil || dataMap["age"] == nil || dataMap["img"] == nil {
-		return nil, errors.New("missing required key in dataMap")
-	}
 
 	return &gallery, nil
 }

@@ -5,7 +5,6 @@ import (
 	"errors"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
-	"strconv"
 	"strings"
 )
 
@@ -18,16 +17,11 @@ type TrainBar struct {
 	Title string `json:"title"`
 	Text  string `json:"text"`
 
-	Img   string `json:"img"`
+	Img string `json:"img"`
 }
 
 func mapToTrainBar(dataMap map[string]any) (*TrainBar, error) {
 	var trainBar TrainBar
-
-	// Check if required keys exist
-	if dataMap["name"] == nil || dataMap["age"] == nil || dataMap["img"] == nil {
-		return nil, errors.New("missing required key in dataMap")
-	}
 
 	// Iterate over provided map
 	for key, value := range dataMap {
@@ -38,18 +32,6 @@ func mapToTrainBar(dataMap map[string]any) (*TrainBar, error) {
 				return nil, errors.New("invalid or empty Name field")
 			}
 			trainBar.Name = name
-		case "age":
-			str := value.(string)
-			age, err := strconv.Atoi(str)
-			if err != nil {
-				return nil, err
-			}
-
-			if age == 0 {
-				age = -1
-			}
-
-			trainBar.Age = age
 		case "img":
 			img, ok := value.(string)
 			if !ok || img == "" {

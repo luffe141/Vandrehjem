@@ -2,11 +2,8 @@ package mongodb
 
 import (
 	"backend/database/mongodb"
-	"errors"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
-	"strconv"
-	"strings"
 )
 
 var SliderCollectionName = "slider"
@@ -14,50 +11,15 @@ var SliderUnique = "name"
 
 type Slider struct {
 	//	_Id  string
-	Name  string `json:"name"`
-	Title string `json:"title"`
-	Text  string `json:"text"`
+	Name   string   `json:"name"`
+	Title  string   `json:"title"`
+	Text   string   `json:"text"`
 	Slider []string `json:"slider"`
-	Img   string `json:"img"`
+	Img    string   `json:"img"`
 }
 
 func mapToSlider(dataMap map[string]any) (*Slider, error) {
 	var Slider Slider
-
-	// Check if required keys exist
-	if dataMap["name"] == nil || dataMap["age"] == nil || dataMap["img"] == nil {
-		return nil, errors.New("missing required key in dataMap")
-	}
-
-	// Iterate over provided map
-	for key, value := range dataMap {
-		switch strings.ToLower(key) {
-		case "name":
-			name, ok := value.(string)
-			if !ok || name == "" {
-				return nil, errors.New("invalid or empty Name field")
-			}
-			Slider.Name = name
-		case "age":
-			str := value.(string)
-			age, err := strconv.Atoi(str)
-			if err != nil {
-				return nil, err
-			}
-
-			if age == 0 {
-				age = -1
-			}
-
-			Slider.Age = age
-		case "img":
-			img, ok := value.(string)
-			if !ok || img == "" {
-				return nil, errors.New("invalid or empty Img field")
-			}
-			Slider.Img = img
-		}
-	}
 
 	return &Slider, nil
 }

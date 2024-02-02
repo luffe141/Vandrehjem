@@ -2,7 +2,6 @@ package mongodb
 
 import (
 	"backend/database/mongodb"
-	"errors"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
@@ -22,11 +21,6 @@ type Activity struct {
 
 func mapToActivities(dataMap map[string]any) (*Activity, error) {
 	var activity Activity
-
-	// Check if required keys exist
-	if dataMap["name"] == nil || dataMap["age"] == nil || dataMap["img"] == nil {
-		return nil, errors.New("missing required key in dataMap")
-	}
 
 	return &activity, nil
 }
