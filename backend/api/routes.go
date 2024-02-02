@@ -1,7 +1,7 @@
 package api
 
 import (
-	"backend/api/controllers"
+	"backend/api/controllers/mongodb"
 	"backend/api/handlers"
 	"backend/api/users"
 	"net/http"
@@ -13,11 +13,23 @@ func AddRoutes() *http.ServeMux {
 	// routes
 	mux = apiBaseRoutes(mux)
 
-	mux.HandleFunc("GET /api/activities/", jsonWrapper(handlers.HandleGetData))
-	mux.HandleFunc("GET /api/activities/{id}/", jsonWrapper(handlers.HandleGetDataById))
-	mux.HandleFunc("POST /api/activities/", jsonWrapper(handlers.HandlePostData))
-	mux.HandleFunc("PUT /api/activities/{id}/", jsonWrapper(handlers.HandlePutData))
-	mux.HandleFunc("DELETE /api/activities/{id}/", jsonWrapper(handlers.HandleDeleteData(controllers.Activity{})))
+	activity := &mongodb.Activity{}
+	aboutUs := &mongodb.AboutUs{}
+
+	//mux.HandleFunc("/api/activities/", HandleGet(activity))
+	//mux.HandleFunc("/api/sliders/", HandleGet(slider))
+
+	mux.HandleFunc("GET /api/activities", JsonWrapper(handlers.HandleGet(activity)))
+	mux.HandleFunc("GET /api/activities/{id}/", JsonWrapper(handlers.HandleGetById(activity)))
+	mux.HandleFunc("POST /api/activities/", JsonWrapper(handlers.HandlePost(activity)))
+	mux.HandleFunc("PUT /api/activities/{id}/", JsonWrapper(handlers.HandlePut(activity)))
+	mux.HandleFunc("DELETE /api/activities/{id}/", JsonWrapper(handlers.HandleDelete(activity)))
+
+	mux.HandleFunc("GET /api/aboutus", JsonWrapper(handlers.HandleGet(aboutUs)))
+	mux.HandleFunc("GET /api/aboutus/{id}/", JsonWrapper(handlers.HandleGetById(aboutUs)))
+	mux.HandleFunc("POST /api/aboutus/", JsonWrapper(handlers.HandlePost(aboutUs)))
+	mux.HandleFunc("PUT /api/aboutus/{id}/", JsonWrapper(handlers.HandlePut(aboutUs)))
+	mux.HandleFunc("DELETE /api/aboutus/{id}/", JsonWrapper(handlers.HandleDelete(aboutUs)))
 
 	mux = exampleRoutes(mux)
 	return mux
