@@ -1,4 +1,7 @@
-
 .galleriContainer {
-    min-height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: fit-content;
+    padding: 10px 0px;
 }
