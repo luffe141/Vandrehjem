@@ -13,3 +13,4 @@ and then
 to run backend, install go 1.22 and go to backend directory and run
 
     go run main.go
+
