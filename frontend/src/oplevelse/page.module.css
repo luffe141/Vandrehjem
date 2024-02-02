@@ -1,0 +1,40 @@
+
+.bigContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.djursContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.katContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.katContainertxt{
+    width: 600px;
+}
+
+.nationalContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.skandiContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.reeContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.gjerrildContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
