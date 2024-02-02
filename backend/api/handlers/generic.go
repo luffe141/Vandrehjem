@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"fmt"
 	"net/http"
 )
 
@@ -15,7 +14,6 @@ type ICrudable interface {
 
 func HandleGet(crudable ICrudable) func(http.ResponseWriter, *http.Request) (any, error) {
 	return func(w http.ResponseWriter, req *http.Request) (any, error) {
-		fmt.Println("1")
 		return crudable.GetAll()
 	}
 }
@@ -29,12 +27,12 @@ func HandleGetById(crudable ICrudable) func(http.ResponseWriter, *http.Request) 
 
 func HandlePost(crudable ICrudable) func(http.ResponseWriter, *http.Request) (any, error) {
 	return func(response http.ResponseWriter, request *http.Request) (any, error) {
-		data, err := parseRequestData(request)
+		input, err := parseRequestData(request)
 		if err != nil {
 			return nil, err
 		}
 
-		err = crudable.Post(data)
+		err = crudable.Post(input)
 		if err != nil {
 			return nil, err
 		}
@@ -48,12 +46,12 @@ func HandlePut(crudable ICrudable) func(http.ResponseWriter, *http.Request) (any
 		id := request.PathValue("id")
 
 		// Parse request data and map it to Activities struct
-		data, err := parseRequestData(request)
+		input, err := parseRequestData(request)
 		if err != nil {
 			return nil, err
 		}
 
-		err = crudable.Put(id, data)
+		err = crudable.Put(id, input)
 		if err != nil {
 			return nil, err
 		}

@@ -5,8 +5,6 @@ import (
 	"errors"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
-	"strconv"
-	"strings"
 )
 
 var ActivityCollectionName = "activity"
@@ -14,9 +12,12 @@ var ActivityUnique = "name"
 
 type Activity struct {
 	//	_Id  string
-	Name string `json:"name"`
-	Age  int    `json:"age,omitempty"`
-	Img  string `json:"img,omitempty"`
+	Image    string   `json:"image"`
+	Images   []string `json:"images"`
+	Title    string   `json:"title"`
+	Titles   string   `json:"titles"`
+	Content  string   `json:"content"`
+	Distance string   `json:"distance"`
 }
 
 func mapToActivities(dataMap map[string]any) (*Activity, error) {
@@ -25,36 +26,6 @@ func mapToActivities(dataMap map[string]any) (*Activity, error) {
 	// Check if required keys exist
 	if dataMap["name"] == nil || dataMap["age"] == nil || dataMap["img"] == nil {
 		return nil, errors.New("missing required key in dataMap")
-	}
-
-	// Iterate over provided map
-	for key, value := range dataMap {
-		switch strings.ToLower(key) {
-		case "name":
-			name, ok := value.(string)
-			if !ok || name == "" {
-				return nil, errors.New("invalid or empty Name field")
-			}
-			activity.Name = name
-		case "age":
-			str := value.(string)
-			age, err := strconv.Atoi(str)
-			if err != nil {
-				return nil, err
-			}
-
-			if age == 0 {
-				age = -1
-			}
-
-			activity.Age = age
-		case "img":
-			img, ok := value.(string)
-			if !ok || img == "" {
-				return nil, errors.New("invalid or empty Img field")
-			}
-			activity.Img = img
-		}
 	}
 
 	return &activity, nil

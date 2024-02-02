@@ -9,18 +9,20 @@ import (
 	"strings"
 )
 
-var AboutUsCollectionName = "about us"
-var AboutUsUnique = "name"
+var ReviewCollectionName = "review"
+var ReviewUnique = "name"
 
-type AboutUs struct {
+type Review struct {
 	//	_Id  string
-	Img   string `json:"img"`
+	Name  string `json:"name"`
 	Title string `json:"title"`
 	Text  string `json:"text"`
+	Age   int    `json:"age"`
+	Img   string `json:"img"`
 }
 
-func mapToAboutUs(dataMap map[string]any) (*AboutUs, error) {
-	var aboutUs AboutUs
+func mapToReview(dataMap map[string]any) (*Review, error) {
+	var review Review
 
 	// Check if required keys exist
 	if dataMap["name"] == nil || dataMap["age"] == nil || dataMap["img"] == nil {
@@ -35,7 +37,7 @@ func mapToAboutUs(dataMap map[string]any) (*AboutUs, error) {
 			if !ok || name == "" {
 				return nil, errors.New("invalid or empty Name field")
 			}
-			aboutUs.Name = name
+			review.Name = name
 		case "age":
 			str := value.(string)
 			age, err := strconv.Atoi(str)
@@ -47,27 +49,27 @@ func mapToAboutUs(dataMap map[string]any) (*AboutUs, error) {
 				age = -1
 			}
 
-			aboutUs.Age = age
+			review.Age = age
 		case "img":
 			img, ok := value.(string)
 			if !ok || img == "" {
 				return nil, errors.New("invalid or empty Img field")
 			}
-			aboutUs.Img = img
+			review.Img = img
 		}
 	}
 
-	return &aboutUs, nil
+	return &review, nil
 }
 
-func (aboutUs AboutUs) GetAll() (any, error) {
-	store := mongodb.NewStorage(MongodbConnection, DatabaseName, AboutUsCollectionName, AboutUsUnique)
+func (review Review) GetAll() (any, error) {
+	store := mongodb.NewStorage(MongodbConnection, DatabaseName, ReviewCollectionName, ReviewUnique)
 	defer store.Close()
 	return store.ReadData(bson.M{})
 }
 
-func (aboutUs AboutUs) GetById(id string) (any, error) {
-	store := mongodb.NewStorage(MongodbConnection, DatabaseName, AboutUsCollectionName, AboutUsUnique)
+func (review Review) GetById(id string) (any, error) {
+	store := mongodb.NewStorage(MongodbConnection, DatabaseName, ReviewCollectionName, ReviewUnique)
 	defer store.Close()
 
 	objectID, err := primitive.ObjectIDFromHex(id)
@@ -82,13 +84,13 @@ func (aboutUs AboutUs) GetById(id string) (any, error) {
 	return store.ReadData(filter)
 }
 
-func (aboutUs AboutUs) Post(data map[string]any) error {
-	mappedData, err := mapToAboutUs(data)
+func (review Review) Post(data map[string]any) error {
+	mappedData, err := mapToReview(data)
 	if err != nil {
 		return err
 	}
 
-	store := mongodb.NewStorage(MongodbConnection, DatabaseName, AboutUsCollectionName, AboutUsUnique)
+	store := mongodb.NewStorage(MongodbConnection, DatabaseName, ReviewCollectionName, ReviewUnique)
 	defer store.Close()
 
 	err = store.CreateData(*mappedData)
@@ -96,18 +98,18 @@ func (aboutUs AboutUs) Post(data map[string]any) error {
 	return err
 }
 
-func (aboutUs AboutUs) Put(id string, data map[string]any) error {
+func (review Review) Put(id string, data map[string]any) error {
 	objectID, err := primitive.ObjectIDFromHex(id)
 	if err != nil {
 		return err
 	}
 
-	mappedData, err := mapToAboutUs(data)
+	mappedData, err := mapToReview(data)
 	if err != nil {
 		return err
 	}
 
-	store := mongodb.NewStorage(MongodbConnection, DatabaseName, AboutUsCollectionName, AboutUsUnique)
+	store := mongodb.NewStorage(MongodbConnection, DatabaseName, ReviewCollectionName, ReviewUnique)
 	defer store.Close()
 
 	filter := bson.M{
@@ -123,8 +125,8 @@ func (aboutUs AboutUs) Put(id string, data map[string]any) error {
 	return err
 }
 
-func (aboutUs AboutUs) Delete(id string) error {
-	store := mongodb.NewStorage(MongodbConnection, DatabaseName, AboutUsCollectionName, AboutUsUnique)
+func (review Review) Delete(id string) error {
+	store := mongodb.NewStorage(MongodbConnection, DatabaseName, ReviewCollectionName, ReviewUnique)
 	defer store.Close()
 	objectID, err := primitive.ObjectIDFromHex(id)
 	if err != nil {
