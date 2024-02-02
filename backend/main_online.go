@@ -1,4 +1,4 @@
-//go:build !online
+//go:build online
 
 package main
 
@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	apiServer := server.New("localhost", "8070")
+	apiServer := server.New("lmbek.dk", "4040")
 	err := apiServer.Start()
 
 	fmt.Println(err)
