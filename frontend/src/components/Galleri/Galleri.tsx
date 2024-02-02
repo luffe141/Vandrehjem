@@ -1,8 +1,12 @@
-
+import styles from './Galleri.module.css'
 
 const Galleri = () => {
   return (
-    <div>Galleri</div>
+    <>
+    <div className={styles.galleriContainer}>
+    
+    </div>
+    </>
   )
 }
 
