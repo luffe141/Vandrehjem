@@ -32,7 +32,7 @@ func NewStorage(uri string, database string, collection string, uniqueFields ...
 	for _, field := range uniqueFields {
 		indexModel := mongo.IndexModel{
 			Keys:    bson.M{field: 1},
-			Options: options.Index().SetUnique(true),
+			Options: options.Index().SetUnique(false),
 		}
 		_, err = col.Indexes().CreateOne(ctx, indexModel)
 		if err != nil {

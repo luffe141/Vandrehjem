@@ -7,7 +7,7 @@ import (
 )
 
 var ActivityCollectionName = "activity"
-var ActivityUnique = "name"
+var ActivityUnique []string
 
 type Activity struct {
 	//	_Id  string
@@ -26,13 +26,13 @@ func mapToActivities(dataMap map[string]any) (*Activity, error) {
 }
 
 func (activity Activity) GetAll() (any, error) {
-	store := mongodb.NewStorage(MongodbConnection, DatabaseName, ActivityCollectionName, ActivityUnique)
+	store := mongodb.NewStorage(MongodbConnection, DatabaseName, ActivityCollectionName)
 	defer store.Close()
 	return store.ReadData(bson.M{})
 }
 
 func (activity Activity) GetById(id string) (any, error) {
-	store := mongodb.NewStorage(MongodbConnection, DatabaseName, ActivityCollectionName, ActivityUnique)
+	store := mongodb.NewStorage(MongodbConnection, DatabaseName, ActivityCollectionName)
 	defer store.Close()
 
 	objectID, err := primitive.ObjectIDFromHex(id)
@@ -53,7 +53,7 @@ func (activity Activity) Post(data map[string]any) error {
 		return err
 	}
 
-	store := mongodb.NewStorage(MongodbConnection, DatabaseName, ActivityCollectionName, ActivityUnique)
+	store := mongodb.NewStorage(MongodbConnection, DatabaseName, ActivityCollectionName)
 	defer store.Close()
 
 	err = store.CreateData(*mappedData)
@@ -72,7 +72,7 @@ func (activity Activity) Put(id string, data map[string]any) error {
 		return err
 	}
 
-	store := mongodb.NewStorage(MongodbConnection, DatabaseName, ActivityCollectionName, ActivityUnique)
+	store := mongodb.NewStorage(MongodbConnection, DatabaseName, ActivityCollectionName)
 	defer store.Close()
 
 	filter := bson.M{
@@ -89,7 +89,7 @@ func (activity Activity) Put(id string, data map[string]any) error {
 }
 
 func (activity Activity) Delete(id string) error {
-	store := mongodb.NewStorage(MongodbConnection, DatabaseName, ActivityCollectionName, ActivityUnique)
+	store := mongodb.NewStorage(MongodbConnection, DatabaseName, ActivityCollectionName)
 	defer store.Close()
 	objectID, err := primitive.ObjectIDFromHex(id)
 	if err != nil {
