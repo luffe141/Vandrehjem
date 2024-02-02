@@ -2,6 +2,13 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    width: 100vw;
     height: fit-content;
     padding: 10px 0px;
+}
+
+.imgItem {
+    width: 400px;
+    height: 400px;
+    
 }

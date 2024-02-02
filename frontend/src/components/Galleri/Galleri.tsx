@@ -5,7 +5,7 @@ const Galleri = () => {
     // Images hentes og vises fra serveren via api
     <>
       <div className={styles.galleriContainer}>
-        
+        <div><p>test</p></div>
       </div>
     </>
   );
