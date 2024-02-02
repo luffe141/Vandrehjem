@@ -42,6 +42,7 @@ h3{
 }
 .leftImg{
     width: 300px;
+    padding: 20px;
 }
 .eventInfo{
     width: 500px;
@@ -53,6 +54,7 @@ h3{
 }
 .rightImg{
     width: 300px;
+    padding: 20px;
 }
 .container{
     display: flex;
@@ -64,5 +66,25 @@ h3{
     text-align: center;
 }
 .eventCurrentBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.upcommingEventsContainer{
+    display: flex;
+    justify-content: center;
     
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+}
+.upcommingEventsBtn{
+    position: relative;
+    top: -40px;
+}
+.arrowContainer{
+ 
 }

@@ -188,6 +188,8 @@
 @media screen and (max-width: 431px) {
     .imageSliderDiv {
         height: fit-content;
+        border: none;
+        margin: 0px;
     }
 
     .galleryImgContainer :nth-child(1) {

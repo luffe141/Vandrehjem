@@ -2,6 +2,7 @@ package mongodb
 
 import (
 	"backend/database/mongodb"
+	"errors"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
@@ -9,7 +10,7 @@ import (
 var eventCollectionName = "event"
 var eventUnique = "name"
 
-type event struct {
+type Events struct {
 	//	_Id  string
 
 	Image    string   `json:"image"`
@@ -19,51 +20,49 @@ type event struct {
 	Contents []string `json:"contents"`
 }
 
-func mapToevent(dataMap map[string]any) (*event, error) {
-	var event event
+func mapToEvents(dataMap map[string]interface{}) (*Events, error) {
+	var event Events
 
-	/*
-		// Iterate over provided map
-		for key, value := range dataMap {
-			switch strings.ToLower(key) {
-			case "name":
-				name, ok := value.(string)
-				if !ok || name == "" {
-					return nil, errors.New("invalid or empty Name field")
-				}
-				event.Name = name
-			case "age":
-				str := value.(string)
-				age, err := strconv.Atoi(str)
-				if err != nil {
-					return nil, err
-				}
+	if val, ok := dataMap["image"].(string); ok {
+		event.Image = val
+	} else {
+		return nil, errors.New("image field not found or is not a string")
+	}
 
-				if age == 0 {
-					age = -1
-				}
+	if val, ok := dataMap["images"].([]string); ok {
+		event.Images = val
+	} else {
+		return nil, errors.New("images field not found or is not a slice of string")
+	}
 
-				event.Age = age
-			case "img":
-				img, ok := value.(string)
-				if !ok || img == "" {
-					return nil, errors.New("invalid or empty Img field")
-				}
-				event.Img = img
-			}
-		}
-	*/
+	if val, ok := dataMap["title"].(string); ok {
+		event.Title = val
+	} else {
+		return nil, errors.New("title field not found or is not a string")
+	}
+
+	if val, ok := dataMap["content"].(string); ok {
+		event.Content = val
+	} else {
+		return nil, errors.New("content field not found or is not a string")
+	}
+
+	if val, ok := dataMap["contents"].([]string); ok {
+		event.Contents = val
+	} else {
+		return nil, errors.New("contents field not found or is not a slice of string")
+	}
 
 	return &event, nil
 }
 
-func (event event) GetAll() (any, error) {
+func (event Events) GetAll() (any, error) {
 	store := mongodb.NewStorage(MongodbConnection, DatabaseName, eventCollectionName, eventUnique)
 	defer store.Close()
 	return store.ReadData(bson.M{})
 }
 
-func (event event) GetById(id string) (any, error) {
+func (event Events) GetById(id string) (any, error) {
 	store := mongodb.NewStorage(MongodbConnection, DatabaseName, eventCollectionName, eventUnique)
 	defer store.Close()
 
@@ -79,13 +78,13 @@ func (event event) GetById(id string) (any, error) {
 	return store.ReadData(filter)
 }
 
-func (event event) Post(data map[string]any) error {
-	mappedData, err := mapToevent(data)
+func (events Events) Post(data map[string]interface{}) error {
+	mappedData, err := mapToEvents(data)
 	if err != nil {
 		return err
 	}
 
-	store := mongodb.NewStorage(MongodbConnection, DatabaseName, eventCollectionName, eventUnique)
+	store := mongodb.NewStorage(MongodbConnection, DatabaseName, ReviewCollectionName, ReviewUnique)
 	defer store.Close()
 
 	err = store.CreateData(*mappedData)
@@ -93,18 +92,18 @@ func (event event) Post(data map[string]any) error {
 	return err
 }
 
-func (event event) Put(id string, data map[string]any) error {
+func (events Events) Put(id string, data map[string]interface{}) error {
 	objectID, err := primitive.ObjectIDFromHex(id)
 	if err != nil {
 		return err
 	}
 
-	mappedData, err := mapToevent(data)
+	mappedData, err := mapToEvents(data)
 	if err != nil {
 		return err
 	}
 
-	store := mongodb.NewStorage(MongodbConnection, DatabaseName, eventCollectionName, eventUnique)
+	store := mongodb.NewStorage(MongodbConnection, DatabaseName, ReviewCollectionName, ReviewUnique)
 	defer store.Close()
 
 	filter := bson.M{
@@ -120,7 +119,7 @@ func (event event) Put(id string, data map[string]any) error {
 	return err
 }
 
-func (event event) Delete(id string) error {
+func (event Events) Delete(id string) error {
 	store := mongodb.NewStorage(MongodbConnection, DatabaseName, eventCollectionName, eventUnique)
 	defer store.Close()
 	objectID, err := primitive.ObjectIDFromHex(id)

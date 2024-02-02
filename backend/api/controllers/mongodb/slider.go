@@ -2,6 +2,7 @@ package mongodb
 
 import (
 	"backend/database/mongodb"
+	"errors"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
@@ -18,10 +19,40 @@ type Slider struct {
 	Img    string   `json:"img"`
 }
 
-func mapToSlider(dataMap map[string]any) (*Slider, error) {
-	var Slider Slider
+func mapToSlider(dataMap map[string]interface{}) (*Slider, error) {
+	var slider Slider
 
-	return &Slider, nil
+	if val, ok := dataMap["name"].(string); ok {
+		slider.Name = val
+	} else {
+		return nil, errors.New("name field not found or is not a string")
+	}
+
+	if val, ok := dataMap["title"].(string); ok {
+		slider.Title = val
+	} else {
+		return nil, errors.New("title field not found or is not a string")
+	}
+
+	if val, ok := dataMap["text"].(string); ok {
+		slider.Text = val
+	} else {
+		return nil, errors.New("text field not found or is not a string")
+	}
+
+	if val, ok := dataMap["img"].(string); ok {
+		slider.Img = val
+	} else {
+		return nil, errors.New("img field not found or is not a string")
+	}
+
+	if val, ok := dataMap["slider"].([]string); ok {
+		slider.Slider = val
+	} else {
+		return nil, errors.New("slider field not found or is not a slice of string")
+	}
+
+	return &slider, nil
 }
 
 func (Slider Slider) GetAll() (any, error) {
