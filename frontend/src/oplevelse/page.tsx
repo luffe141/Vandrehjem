@@ -2,7 +2,7 @@ import style from "./page.module.css";
 
 function page() {
   return (
-    <div >
+    <div className={style.bigContainer}>
       <div className={style.djursContainer}>
         <div>
           <img src="https://placehold.co/600x400" alt="" />
@@ -18,7 +18,7 @@ function page() {
       </div>
 
       <div className={style.katContainer}>
-        <div>
+        <div className={style.katContainertxt}>
           <h2>Kattagat Centret</h2>
           <p>
             Kattegatcentret er et imponerende akvarium og havcenter, der ligger
