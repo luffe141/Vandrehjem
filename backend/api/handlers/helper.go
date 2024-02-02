@@ -5,17 +5,16 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-	"strings"
 )
 
 // Helper function to parse the form data and the query parameters
-func parseFormAndQuery(request *http.Request) (map[string]string, error) {
+func parseFormAndQuery(request *http.Request) (map[string]any, error) {
 	err := request.ParseForm()
 	if err != nil {
 		return nil, err
 	}
 
-	flatForm := make(map[string]string)
+	flatForm := make(map[string]any)
 	for key, values := range request.Form {
 		if len(values) > 0 {
 			flatForm[key] = values[0]
@@ -70,26 +69,4 @@ func parseRequestData(request *http.Request) (map[string]any, error) {
 	}
 
 	return data, nil
-}
-
-func mapToActivities(dataMap map[string]any) (*Activity, error) {
-	var activity Activity
-
-	for key, value := range dataMap {
-		switch strings.ToLower(key) {
-		case "name":
-			activity.Name, _ = value.(string)
-		case "age":
-			if activity.Age == 0 {
-				activity.Age = -1
-			} else {
-				activity.Age, _ = value.(int)
-			}
-
-		case "img":
-			activity.Img, _ = value.(string)
-		}
-	}
-
-	return &activity, nil
 }
