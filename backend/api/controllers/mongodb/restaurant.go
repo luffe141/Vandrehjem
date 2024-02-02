@@ -19,44 +19,38 @@ type Restaurant struct {
 	Menu    string   `json:"menu"`
 }
 
-func mapToRestaurant(dataMap map[string]any) (*Restaurant, error) {
+func mapToRestaurant(dataMap map[string]interface{}) (*Restaurant, error) {
 	var restaurant Restaurant
 
-	// Check if required keys exist
-	if dataMap["name"] == nil || dataMap["age"] == nil || dataMap["img"] == nil {
-		return nil, errors.New("missing required key in dataMap")
+	if val, ok := dataMap["image"].(string); ok {
+		restaurant.Image = val
+	} else {
+		return nil, errors.New("image field not found or is not a string")
 	}
-	/*
-		// Iterate over provided map
-		for key, value := range dataMap {
-			switch strings.ToLower(key) {
-			case "name":
-				name, ok := value.(string)
-				if !ok || name == "" {
-					return nil, errors.New("invalid or empty Name field")
-				}
-				restaurant.Name = name
-			case "age":
-				str := value.(string)
-				age, err := strconv.Atoi(str)
-				if err != nil {
-					return nil, err
-				}
 
-				if age == 0 {
-					age = -1
-				}
+	if val, ok := dataMap["images"].([]string); ok {
+		restaurant.Images = val
+	} else {
+		return nil, errors.New("images field not found or is not a slice of string")
+	}
 
-				restaurant.Age = age
-			case "img":
-				img, ok := value.(string)
-				if !ok || img == "" {
-					return nil, errors.New("invalid or empty Img field")
-				}
-				restaurant.Img = img
-			}
-		}
-	*/
+	if val, ok := dataMap["title"].(string); ok {
+		restaurant.Title = val
+	} else {
+		return nil, errors.New("title field not found or is not a string")
+	}
+
+	if val, ok := dataMap["content"].(string); ok {
+		restaurant.Content = val
+	} else {
+		return nil, errors.New("content field not found or is not a string")
+	}
+
+	if val, ok := dataMap["menu"].(string); ok {
+		restaurant.Menu = val
+	} else {
+		return nil, errors.New("menu field not found or is not a string")
+	}
 
 	return &restaurant, nil
 }

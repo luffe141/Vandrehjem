@@ -12,6 +12,7 @@ func AddRoutes() *http.ServeMux {
 	activity := &mongodb.Activity{}
 	aboutUs := &mongodb.AboutUs{}
 	contact := &mongodb.Contact{}
+	events := &mongodb.Events{}
 	gallery := &mongodb.Gallery{}
 	review := &mongodb.Review{}
 	room := &mongodb.Room{}
@@ -35,6 +36,12 @@ func AddRoutes() *http.ServeMux {
 	mux.HandleFunc("POST /api/contact/", JsonWrapper(handlers.HandlePost(contact)))
 	mux.HandleFunc("PUT /api/contact/{id}/", JsonWrapper(handlers.HandlePut(contact)))
 	mux.HandleFunc("DELETE /api/contact/{id}/", JsonWrapper(handlers.HandleDelete(contact)))
+
+	mux.HandleFunc("GET /api/events/", JsonWrapper(handlers.HandleGet(events)))
+	mux.HandleFunc("GET /api/events/{id}/", JsonWrapper(handlers.HandleGetById(events)))
+	mux.HandleFunc("POST /api/events/", JsonWrapper(handlers.HandlePost(events)))
+	mux.HandleFunc("PUT /api/events/{id}/", JsonWrapper(handlers.HandlePut(events)))
+	mux.HandleFunc("DELETE /api/events/{id}/", JsonWrapper(handlers.HandleDelete(events)))
 
 	mux.HandleFunc("GET /api/review/", JsonWrapper(handlers.HandleGet(review)))
 	mux.HandleFunc("GET /api/review/{id}/", JsonWrapper(handlers.HandleGetById(review)))

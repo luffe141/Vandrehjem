@@ -17,44 +17,27 @@ type AboutUs struct {
 	Text  string `json:"text"`
 }
 
-func mapToAboutUs(dataMap map[string]any) (*AboutUs, error) {
+func mapToAboutUs(dataMap map[string]interface{}) (*AboutUs, error) {
 	var aboutUs AboutUs
 
-	// Check if required keys exist
-	if dataMap["name"] == nil || dataMap["age"] == nil || dataMap["img"] == nil {
-		return nil, errors.New("missing required key in dataMap")
+	// Make sure all fields are present for type assertion.
+	if val, ok := dataMap["img"].(string); ok {
+		aboutUs.Img = val
+	} else {
+		return nil, errors.New("img field not found or is not a string")
 	}
-	/*
-		// Iterate over provided map
-		for key, value := range dataMap {
-			switch strings.ToLower(key) {
-			case "name":
-				name, ok := value.(string)
-				if !ok || name == "" {
-					return nil, errors.New("invalid or empty Name field")
-				}
-				aboutUs.Name = name
-			case "age":
-				str := value.(string)
-				age, err := strconv.Atoi(str)
-				if err != nil {
-					return nil, err
-				}
 
-				if age == 0 {
-					age = -1
-				}
+	if val, ok := dataMap["title"].(string); ok {
+		aboutUs.Title = val
+	} else {
+		return nil, errors.New("title field not found or is not a string")
+	}
 
-				aboutUs.Age = age
-			case "img":
-				img, ok := value.(string)
-				if !ok || img == "" {
-					return nil, errors.New("invalid or empty Img field")
-				}
-				aboutUs.Img = img
-			}
-		}
-	*/
+	if val, ok := dataMap["text"].(string); ok {
+		aboutUs.Text = val
+	} else {
+		return nil, errors.New("text field not found or is not a string")
+	}
 
 	return &aboutUs, nil
 }

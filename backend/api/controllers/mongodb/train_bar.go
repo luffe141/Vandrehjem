@@ -5,7 +5,6 @@ import (
 	"errors"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
-	"strings"
 )
 
 var trainBarCollectionName = "train bar"
@@ -20,25 +19,31 @@ type TrainBar struct {
 	Img string `json:"img"`
 }
 
-func mapToTrainBar(dataMap map[string]any) (*TrainBar, error) {
+func mapToTrainBar(dataMap map[string]interface{}) (*TrainBar, error) {
 	var trainBar TrainBar
 
-	// Iterate over provided map
-	for key, value := range dataMap {
-		switch strings.ToLower(key) {
-		case "name":
-			name, ok := value.(string)
-			if !ok || name == "" {
-				return nil, errors.New("invalid or empty Name field")
-			}
-			trainBar.Name = name
-		case "img":
-			img, ok := value.(string)
-			if !ok || img == "" {
-				return nil, errors.New("invalid or empty Img field")
-			}
-			trainBar.Img = img
-		}
+	if val, ok := dataMap["name"].(string); ok {
+		trainBar.Name = val
+	} else {
+		return nil, errors.New("name field not found or is not a string")
+	}
+
+	if val, ok := dataMap["title"].(string); ok {
+		trainBar.Title = val
+	} else {
+		return nil, errors.New("title field not found or is not a string")
+	}
+
+	if val, ok := dataMap["text"].(string); ok {
+		trainBar.Text = val
+	} else {
+		return nil, errors.New("text field not found or is not a string")
+	}
+
+	if val, ok := dataMap["img"].(string); ok {
+		trainBar.Img = val
+	} else {
+		return nil, errors.New("img field not found or is not a string")
 	}
 
 	return &trainBar, nil

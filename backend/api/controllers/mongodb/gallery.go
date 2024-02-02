@@ -2,6 +2,7 @@ package mongodb
 
 import (
 	"backend/database/mongodb"
+	"errors"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
@@ -15,8 +16,20 @@ type Gallery struct {
 	Images []string `json:"images"`
 }
 
-func mapToGallery(dataMap map[string]any) (*Gallery, error) {
+func mapToGallery(dataMap map[string]interface{}) (*Gallery, error) {
 	var gallery Gallery
+
+	if val, ok := dataMap["title"].(string); ok {
+		gallery.Title = val
+	} else {
+		return nil, errors.New("title field not found or is not a string")
+	}
+
+	if val, ok := dataMap["images"].([]string); ok {
+		gallery.Images = val
+	} else {
+		return nil, errors.New("images field not found or is not a slice of string")
+	}
 
 	return &gallery, nil
 }
