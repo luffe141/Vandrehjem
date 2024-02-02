@@ -40,12 +40,12 @@ const Event = () => {
         </div>
         <div className={styles.rightImgContainer}>
           <img
-            className={styles.leftImg}
+            className={styles.rightImg}
             src="https://placehold.jp/350x350.png"
             alt=""
           />
           <img
-            className={styles.leftImg}
+            className={styles.rightImg}
             src="https://placehold.jp/350x350.png"
             alt=""
           />
@@ -53,22 +53,26 @@ const Event = () => {
       </div>
       <hr />
       <div>
-        <h4>Kommende events</h4>
-        <button>venstre pil</button>
-        <button>højre pil</button>
+        <div>
+          <h4>Kommende events</h4>
+        </div>
+        <div className={styles.arrowContainer}>
+          <button>venstre pil</button>
+          <button>højre pil</button>
+        </div>
       </div>
-      <div>
-        <div>
-          <img src="" alt="" />
-          <button>se mere</button>
+      <div className={styles.upcommingEventsContainer}>
+        <div className={styles.card}>
+          <img src="https://placehold.jp/350x350.png" alt="" />
+          <button className={styles.upcommingEventsBtn}>se mere</button>
         </div>
-        <div>
-          <img src="" alt="" />
-          <button>se mere</button>
+        <div className={styles.card}>
+          <img src="https://placehold.jp/350x350.png" alt="" />
+          <button className={styles.upcommingEventsBtn}>se mere</button>
         </div>
-        <div>
-          <img src="" alt="" />
-          <button>se mere</button>
+        <div className={styles.card}>
+          <img src="https://placehold.jp/350x350.png" alt="" />
+          <button className={styles.upcommingEventsBtn}>se mere</button>
         </div>
       </div>
     </div>
