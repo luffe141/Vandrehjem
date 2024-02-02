@@ -8,13 +8,13 @@ import (
 )
 
 // Helper function to parse the form data and the query parameters
-func parseFormAndQuery(request *http.Request) (map[string]any, error) {
+func parseFormAndQuery(request *http.Request) (map[string]interface{}, error) {
 	err := request.ParseForm()
 	if err != nil {
 		return nil, err
 	}
 
-	flatForm := make(map[string]any)
+	flatForm := make(map[string]interface{})
 	for key, values := range request.Form {
 		if len(values) > 0 {
 			flatForm[key] = values[0]
@@ -24,25 +24,29 @@ func parseFormAndQuery(request *http.Request) (map[string]any, error) {
 }
 
 // Helper function to parse the JSON body
-func parseJSONBody(request *http.Request) (map[string]any, error) {
+func parseJSONBody(request *http.Request) (map[string]interface{}, error) {
 	body, err := io.ReadAll(request.Body)
 	if err != nil {
 		fmt.Println("Error in reading the request body: ", err)
 		return nil, err
 	}
-
-	var data map[string]any
+	fmt.Println("read")
+	fmt.Println(body)
+	var data map[string]interface{}
 	err = json.Unmarshal(body, &data)
 	if err != nil {
 		fmt.Println("Error in unmarshalling the JSON: ", err)
 		return nil, err
 	}
 
+	fmt.Println("data")
+	fmt.Println(data)
+
 	return data, nil
 }
 
-func parseRequestData(request *http.Request) (map[string]any, error) {
-	data := make(map[string]any)
+func parseRequestData(request *http.Request) (map[string]interface{}, error) {
+	data := make(map[string]interface{})
 
 	if request.URL.RawQuery != "" {
 		// Parse the form data.
