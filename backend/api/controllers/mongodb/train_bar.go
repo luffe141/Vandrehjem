@@ -17,7 +17,7 @@ type TrainBar struct {
 	Name  string `json:"name"`
 	Title string `json:"title"`
 	Text  string `json:"text"`
-	Age   int    `json:"age"`
+
 	Img   string `json:"img"`
 }
 

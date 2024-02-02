@@ -17,7 +17,7 @@ type Slider struct {
 	Name  string `json:"name"`
 	Title string `json:"title"`
 	Text  string `json:"text"`
-	Age   int    `json:"age"`
+	Slider []string `json:"slider"`
 	Img   string `json:"img"`
 }
 

@@ -3,10 +3,11 @@ package mongodb
 import (
 	"backend/database/mongodb"
 	"errors"
-	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/bson/primitive"
 	"strconv"
 	"strings"
+
+	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
 var ReviewCollectionName = "review"
@@ -14,11 +15,13 @@ var ReviewUnique = "name"
 
 type Review struct {
 	//	_Id  string
-	Name  string `json:"name"`
-	Title string `json:"title"`
-	Text  string `json:"text"`
-	Age   int    `json:"age"`
-	Img   string `json:"img"`
+	Name     string   `json:"name"`
+	Title    string   `json:"title"`
+	Text     string   `json:"text"`
+	Img      string   `json:"img"`
+	Rating   string   `json:"rating"`
+	Content  string   `json:"content"`
+	Contents []string `json:"contents"`
 }
 
 func mapToReview(dataMap map[string]any) (*Review, error) {

@@ -17,8 +17,10 @@ type Room struct {
 	Name  string `json:"name"`
 	Title string `json:"title"`
 	Text  string `json:"text"`
-	Age   int    `json:"age"`
 	Img   string `json:"img"`
+	Price string `json:"price"`
+	Slider []string `json:"slider"`
+	Content string `json:"content"`
 }
 
 func mapToRoom(dataMap map[string]any) (*Room, error) {
