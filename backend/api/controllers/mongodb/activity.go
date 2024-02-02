@@ -19,8 +19,27 @@ type Activity struct {
 	Distance string   `json:"distance"`
 }
 
-func mapToActivities(dataMap map[string]any) (*Activity, error) {
+func mapToActivities(dataMap map[string]interface{}) (*Activity, error) {
 	var activity Activity
+
+	if val, ok := dataMap["image"].(string); ok {
+		activity.Image = val
+	}
+	if val, ok := dataMap["images"].([]string); ok {
+		activity.Images = val
+	}
+	if val, ok := dataMap["title"].(string); ok {
+		activity.Title = val
+	}
+	if val, ok := dataMap["titles"].(string); ok {
+		activity.Titles = val
+	}
+	if val, ok := dataMap["content"].(string); ok {
+		activity.Content = val
+	}
+	if val, ok := dataMap["distance"].(string); ok {
+		activity.Distance = val
+	}
 
 	return &activity, nil
 }
