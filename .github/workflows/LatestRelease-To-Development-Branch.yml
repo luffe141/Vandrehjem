@@ -22,8 +22,8 @@ jobs:
 
       - name: Merge Latest-Release into Development branch
         run: |
-          git fetch origin LatestRelease # Update the LatestRelease remote tracking branch
-          git merge origin/LatestRelease --allow-unrelated-histories # Merge the changes from LatestRelease
+          git fetch origin Latest-Release # Update the LatestRelease remote tracking branch
+          git merge origin/Latest-Release --allow-unrelated-histories # Merge the changes from LatestRelease
           git push # Push the changes to the remote repository
 
       - name: Checkout Dev-LMB
