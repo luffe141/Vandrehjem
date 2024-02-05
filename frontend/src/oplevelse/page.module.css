@@ -10,6 +10,14 @@
     flex-wrap: wrap;
 }
 
+.djursContainertxt{
+    width: 600px;
+}
+
+.djursContainertxt h2{
+    margin-bottom: 20px;
+}
+
 .katContainer{
     display: flex;
     flex-wrap: wrap;
@@ -19,14 +27,36 @@
     width: 600px;
 }
 
+.katContainertxt h2{
+    margin-bottom: 20px;
+}
+
 .nationalContainer{
     display: flex;
     flex-wrap: wrap;
 }
 
+.nationalContainertxt{
+    width: 600px;
+}
+
+.nationalContainertxt h2{
+    margin-bottom: 20px;
+}
+
+
+
 .skandiContainer{
     display: flex;
     flex-wrap: wrap;
+}
+
+.skandiContainertxt{
+    width: 600px;
+}
+
+.skandiContainertxt h2{
+    margin-bottom: 20px;
 }
 
 .reeContainer{
@@ -34,7 +64,24 @@
     flex-wrap: wrap;
 }
 
+.reeContainertxt{
+    width: 600px;
+}
+
+.reeContainertxt h2{
+    margin-bottom: 20px;
+}
+
 .gjerrildContainer{
     display: flex;
     flex-wrap: wrap;
+}
+
+.gjerrildContainertxt{
+    width: 600px;
+}
+
+.gjerrildContainertxt h2{
+
+margin-bottom: 20px;
 }
