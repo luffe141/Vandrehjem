@@ -38,6 +38,7 @@ function Navbar() {
 						<a href="/Restaurant">Restaurant</a>
 						<a href="/Galleri">Galleri</a>
 						<a href="/Omos">Om os</a>
+						<a href="/Togbar">Tog bar</a>
 						<a href="/Kontakt">Kontakt</a>
 						<a href="/Bestilonline">Bestil Online</a>
 					</div>
