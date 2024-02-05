@@ -30,6 +30,9 @@
 	justify-content: center;
     padding: 15px 0px 15px 0px;
     background-color: #F8E3C6;
+	position: absolute;
+	z-index: 2;
+	top: 100px;
 }
 
 .topnav .myLinks :not(:last-child) {

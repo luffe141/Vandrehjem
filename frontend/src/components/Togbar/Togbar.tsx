@@ -3,9 +3,9 @@ import Slideshow from "./Slideshow";
 
 const Togbar = () => {
   const images: string[] = [
-    "https://picsum.photos/id/237/300/300",
-    "https://picsum.photos/id/49/300/300",
-    "https://picsum.photos/id/159/300/300",
+    "http://localhost:5173/Img/Billeder/Billeder/Nye%20Billeder/PXL_20230831_175755934.MP~2.jpg",
+    "http://localhost:5173/Img/Billeder/Billeder/Nye%20Billeder/PXL_20230831_180005152.MP~2.jpg",
+    "http://localhost:5173/Img/Billeder/Billeder/Nye%20Billeder/PXL_20230901_094655150.MP~3.jpg",
   ];
 
   return (
@@ -13,7 +13,7 @@ const Togbar = () => {
       <div>
         <img
           className={styles.heroBanner}
-          src="https://placehold.jp/3d4070/ffffff/450x300.png?text=tog%20bar%20banner"
+          src="http://localhost:5173/Img/Billeder/Billeder/Nye%20Billeder/PXL_20230831_183848378.NIGHT~2.jpg"
           alt="banner_img"
         />
       </div>
