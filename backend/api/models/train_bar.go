@@ -1,4 +1,4 @@
-package mongodb
+package models
 
 import (
 	"backend/database/mongodb"
@@ -7,62 +7,66 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
-var SliderCollectionName = "slider"
-var SliderUnique = "name"
+var trainBarCollectionName = "train bar"
+var trainBarUnique = "name"
 
-type Slider struct {
+type TrainBar struct {
 	//	_Id  string
-	Name   string   `json:"name"`
-	Title  string   `json:"title"`
-	Text   string   `json:"text"`
-	Slider []string `json:"slider"`
-	Img    string   `json:"img"`
+	Name  string `json:"name"`
+	Title string `json:"title"`
+	Text  string `json:"text"`
+
+	Img string `json:"img"`
 }
 
-func mapToSlider(dataMap map[string]interface{}) (*Slider, error) {
-	var slider Slider
+func (TrainBar) GetCollectionName() string {
+	return "train_bar"
+}
+
+func (TrainBar) GetUnique() string {
+	return "name"
+}
+
+var TrainBarModel = &Model{&TrainBar{}}
+
+func mapToTrainBar(dataMap map[string]interface{}) (*TrainBar, error) {
+	var trainBar TrainBar
 
 	if val, ok := dataMap["name"].(string); ok {
-		slider.Name = val
+		trainBar.Name = val
 	} else {
 		return nil, errors.New("name field not found or is not a string")
 	}
 
 	if val, ok := dataMap["title"].(string); ok {
-		slider.Title = val
+		trainBar.Title = val
 	} else {
 		return nil, errors.New("title field not found or is not a string")
 	}
 
 	if val, ok := dataMap["text"].(string); ok {
-		slider.Text = val
+		trainBar.Text = val
 	} else {
 		return nil, errors.New("text field not found or is not a string")
 	}
 
 	if val, ok := dataMap["img"].(string); ok {
-		slider.Img = val
+		trainBar.Img = val
 	} else {
 		return nil, errors.New("img field not found or is not a string")
 	}
 
-	if val, ok := dataMap["slider"].([]string); ok {
-		slider.Slider = val
-	} else {
-		return nil, errors.New("slider field not found or is not a slice of string")
-	}
-
-	return &slider, nil
+	return &trainBar, nil
 }
 
-func (Slider Slider) GetAll() (any, error) {
-	store := mongodb.NewStorage(MongodbConnection, DatabaseName, SliderCollectionName, SliderUnique)
+func (trainBar TrainBar) GetAll() (any, error) {
+	store := mongodb.NewStorage(MongodbConnection, DatabaseName, trainBarCollectionName, trainBarUnique)
 	defer store.Close()
 	return store.ReadData(bson.M{})
 }
 
-func (Slider Slider) GetById(id string) (any, error) {
-	store := mongodb.NewStorage(MongodbConnection, DatabaseName, SliderCollectionName, SliderUnique)
+func (trainBar TrainBar) GetById(id string) (any, error) {
+	store := mongodb.NewStorage(MongodbConnection, DatabaseName, trainBarCollectionName, trainBarUnique)
 	defer store.Close()
 
 	objectID, err := primitive.ObjectIDFromHex(id)
@@ -77,13 +81,13 @@ func (Slider Slider) GetById(id string) (any, error) {
 	return store.ReadData(filter)
 }
 
-func (Slider Slider) Post(data map[string]any) error {
-	mappedData, err := mapToSlider(data)
+func (trainBar TrainBar) Post(data map[string]any) error {
+	mappedData, err := mapToTrainBar(data)
 	if err != nil {
 		return err
 	}
 
-	store := mongodb.NewStorage(MongodbConnection, DatabaseName, SliderCollectionName, SliderUnique)
+	store := mongodb.NewStorage(MongodbConnection, DatabaseName, trainBarCollectionName, trainBarUnique)
 	defer store.Close()
 
 	err = store.CreateData(*mappedData)
@@ -91,18 +95,18 @@ func (Slider Slider) Post(data map[string]any) error {
 	return err
 }
 
-func (Slider Slider) Put(id string, data map[string]any) error {
+func (trainBar TrainBar) Put(id string, data map[string]any) error {
 	objectID, err := primitive.ObjectIDFromHex(id)
 	if err != nil {
 		return err
 	}
 
-	mappedData, err := mapToSlider(data)
+	mappedData, err := mapToTrainBar(data)
 	if err != nil {
 		return err
 	}
 
-	store := mongodb.NewStorage(MongodbConnection, DatabaseName, SliderCollectionName, SliderUnique)
+	store := mongodb.NewStorage(MongodbConnection, DatabaseName, trainBarCollectionName, trainBarUnique)
 	defer store.Close()
 
 	filter := bson.M{
@@ -118,8 +122,8 @@ func (Slider Slider) Put(id string, data map[string]any) error {
 	return err
 }
 
-func (slider Slider) Delete(id string) error {
-	store := mongodb.NewStorage(MongodbConnection, DatabaseName, SliderCollectionName, SliderUnique)
+func (trainBar TrainBar) Delete(id string) error {
+	store := mongodb.NewStorage(MongodbConnection, DatabaseName, trainBarCollectionName, trainBarUnique)
 	defer store.Close()
 	objectID, err := primitive.ObjectIDFromHex(id)
 	if err != nil {

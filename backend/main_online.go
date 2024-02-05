@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	apiServer := server.New("lmbek.dk", "4040")
+	apiServer := server.New("lmbek.dk", "4040", api.AddRoutes())
 	err := apiServer.Start()
 
 	fmt.Println(err)
