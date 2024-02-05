@@ -33,7 +33,7 @@ function Navbar() {
 					<div id="myLinks" className={styles.myLinks}>
 						<a href="/">Forside</a>
 						<a href="/Detsker">Det sker</a>
-						<a href="/Vaerelser">Vaerelser</a>
+						<a href="/Vaerelser">Værelser</a>
 						<a href="/Oplevelse">Oplevelser</a>
 						<a href="/Restaurant">Restaurant</a>
 						<a href="/Galleri">Galleri</a>
