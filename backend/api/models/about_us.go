@@ -1,16 +1,14 @@
 package models
 
-import "errors"
-
 type AboutUs struct {
 	Img   string `json:"img"`
 	Title string `json:"title"`
 	Text  string `json:"text"`
 }
 
-func (u AboutUs) Validate(a any) error {
-	//TODO implement me
-	return errors.New("not implemented")
+func (u AboutUs) Validate(data any) error {
+	// no validation of data
+	return nil
 }
 
 func (AboutUs) GetCollectionName() string {

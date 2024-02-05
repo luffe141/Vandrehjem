@@ -19,14 +19,14 @@ type Model struct {
 	IModel
 }
 
-func (s *Model) GetAll() (any, error) {
-	store := mongodb.NewStorage(MongodbConnection, DatabaseName, s.GetCollectionName(), s.GetUnique())
+func (model *Model) GetAll() (any, error) {
+	store := mongodb.NewStorage(MongodbConnection, DatabaseName, model.GetCollectionName(), model.GetUnique())
 	defer store.Close()
 	return store.ReadData(bson.M{})
 }
 
-func (s *Model) GetById(id string) (any, error) {
-	store := mongodb.NewStorage(MongodbConnection, DatabaseName, s.GetCollectionName(), s.GetUnique())
+func (model *Model) GetById(id string) (any, error) {
+	store := mongodb.NewStorage(MongodbConnection, DatabaseName, model.GetCollectionName(), model.GetUnique())
 	defer store.Close()
 
 	objectID, err := primitive.ObjectIDFromHex(id)
@@ -41,23 +41,22 @@ func (s *Model) GetById(id string) (any, error) {
 	return store.ReadData(filter)
 }
 
-func (s *Model) Post(data any) error {
-	err := s.Validate(data)
+func (model *Model) Post(data any) error {
+	// return err if there is any input that is not allowed
+	err := model.Validate(data)
 	if err != nil {
 		return err
 	}
 
-	// convert your struct back to map here
-	// as you transform your json into a struct in handler
-	store := mongodb.NewStorage(MongodbConnection, DatabaseName, s.GetCollectionName(), s.GetUnique())
+	store := mongodb.NewStorage(MongodbConnection, DatabaseName, model.GetCollectionName(), model.GetUnique())
 	defer store.Close()
 
 	err = store.CreateData(data) // data is a struct now, not a map
 	return err
 }
 
-func (s *Model) Put(id string, data map[string]any) error {
-	store := mongodb.NewStorage(MongodbConnection, DatabaseName, s.GetCollectionName(), s.GetUnique())
+func (model *Model) Put(id string, data any) error {
+	store := mongodb.NewStorage(MongodbConnection, DatabaseName, model.GetCollectionName(), model.GetUnique())
 	defer store.Close()
 
 	objectID, err := primitive.ObjectIDFromHex(id)
@@ -77,8 +76,8 @@ func (s *Model) Put(id string, data map[string]any) error {
 	return store.UpdateData(filter, updateData)
 }
 
-func (s *Model) Delete(id string) error {
-	store := mongodb.NewStorage(MongodbConnection, DatabaseName, s.GetCollectionName(), s.GetUnique())
+func (model *Model) Delete(id string) error {
+	store := mongodb.NewStorage(MongodbConnection, DatabaseName, model.GetCollectionName(), model.GetUnique())
 	defer store.Close()
 
 	objectID, err := primitive.ObjectIDFromHex(id)

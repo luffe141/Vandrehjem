@@ -1,13 +1,13 @@
-package api
+package views
 
 import (
 	"backend/api/models"
-	"github.com/lmbek/bekrouter"
+	"backend/bekrouter"
 	"net/http"
 )
 
 func AddRoutes() *http.ServeMux {
-	var router = bekrouter.New()
+	router := bekrouter.New()
 
 	// Restful routes
 	router.AddRestfulJSONRoute("/api/activities/", models.ActivityModel)

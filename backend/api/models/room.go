@@ -15,6 +15,11 @@ type Room struct {
 	Content string   `json:"content"`
 }
 
+func (r Room) Validate(data any) error {
+	// no validation of data
+	return nil
+}
+
 func (Room) GetCollectionName() string {
 	return "room"
 }

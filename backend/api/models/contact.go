@@ -1,7 +1,5 @@
 package models
 
-import "errors"
-
 type Contact struct {
 	Text    string `json:"text"`
 	Title   string `json:"title"`
@@ -13,9 +11,9 @@ type Contact struct {
 	Emne    string `json:"emne"`
 }
 
-func (c Contact) Validate(a any) error {
-	//TODO implement me
-	return errors.New("not implemented")
+func (c Contact) Validate(data any) error {
+	// no validation of data
+	return nil
 }
 
 func (Contact) GetCollectionName() string {

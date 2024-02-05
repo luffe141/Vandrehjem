@@ -1,7 +1,5 @@
 package models
 
-import "errors"
-
 type Events struct {
 	//	_Id  string
 	Image    string   `json:"image"`
@@ -11,9 +9,9 @@ type Events struct {
 	Contents []string `json:"contents"`
 }
 
-func (e Events) Validate(a any) error {
-	//TODO implement me
-	return errors.New("not implemented")
+func (e Events) Validate(data any) error {
+	// no validation of data
+	return nil
 }
 
 func (Events) GetCollectionName() string {

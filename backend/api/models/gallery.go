@@ -6,9 +6,9 @@ type Gallery struct {
 	Images []string `json:"images"`
 }
 
-func (g Gallery) Validate(a any) error {
-	//TODO implement me
-	panic("implement me")
+func (g Gallery) Validate(data any) error {
+	// no validation of data
+	return nil
 }
 
 func (Gallery) GetCollectionName() string {

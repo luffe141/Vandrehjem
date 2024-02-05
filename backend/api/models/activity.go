@@ -1,19 +1,33 @@
 package models
 
-import "errors"
+import (
+	"errors"
+	"fmt"
+)
 
 type Activity struct {
-	Image    string   `json:"image"`
-	Images   []string `json:"images"`
-	Title    string   `json:"title"`
-	Titles   string   `json:"titles"`
-	Content  string   `json:"content"`
-	Distance string   `json:"distance"`
+	Image    string   `bson:"image" json:"image"`
+	Images   []string `bson:"images" json:"images"`
+	Title    string   `bson:"title" json:"title"`
+	Titles   string   `bson:"titles" json:"titles"`
+	Content  string   `bson:"content" json:"content"`
+	Distance string   `bson:"distance" json:"distance"`
 }
 
-func (Activity) Validate(any) error {
-	//TODO implement me
-	return errors.New("not implemented")
+func (Activity) Validate(data any) error {
+	activity, ok := data.(Activity)
+	if !ok {
+		// handle error when data is not of Activity type
+		return errors.New("Invalid data passed")
+	}
+	//activity := data.(Activity)
+	fmt.Println(activity)
+	// title validation
+	if len(activity.Title) < 5 || len(activity.Title) > 30 {
+		return errors.New("title should be between 5 and 30 characters long")
+	}
+
+	return nil
 }
 
 func (Activity) GetCollectionName() string {
