@@ -3,7 +3,7 @@
 package main
 
 import (
-	"backend/api/views"
+	"backend/api/mvc/views"
 	"backend/server"
 	"fmt"
 )
