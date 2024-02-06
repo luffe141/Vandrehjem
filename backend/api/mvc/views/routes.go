@@ -1,8 +1,8 @@
 package views
 
 import (
-	"backend/api/models"
-	"backend/bekrouter"
+	"backend/api/mvc/models"
+	"github.com/lmbek/bekrouter"
 	"net/http"
 )
 
@@ -13,7 +13,7 @@ func AddRoutes() *http.ServeMux {
 	router.AddRestfulJSONRoute("/api/activities/", models.ActivityModel)
 	router.AddRestfulJSONRoute("/api/about-us/", models.AboutUsModel)
 	router.AddRestfulJSONRoute("/api/contact/", models.ContactModel)
-	router.AddRestfulJSONRoute("/api/events/", models.EventsModel)
+	router.AddRestfulJSONRoute("/api/events/", models.EventModel)
 	router.AddRestfulJSONRoute("/api/gallery/", models.GalleryModel)
 	router.AddRestfulJSONRoute("/api/review/", models.ReviewModel)
 	router.AddRestfulJSONRoute("/api/room/", models.RoomModel)
