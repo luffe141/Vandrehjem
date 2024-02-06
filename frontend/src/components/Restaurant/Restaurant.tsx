@@ -1,4 +1,4 @@
-
+import styles from './Restaurant.module.css'
 
 const Restaurant = () => {
   return (
