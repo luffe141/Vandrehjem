@@ -1,11 +1,16 @@
 import styles from "./Togbar.module.css";
 import Slideshow from "./Slideshow";
 
+{/* import/hent data fra serveren ved trainbar endpointet? */}
+
+
 const Togbar = () => {
   const images: string[] = [
     "http://localhost:5173/Img/Billeder/Billeder/Nye%20Billeder/PXL_20230831_175755934.MP~2.jpg",
     "http://localhost:5173/Img/Billeder/Billeder/Nye%20Billeder/PXL_20230831_180005152.MP~2.jpg",
     "http://localhost:5173/Img/Billeder/Billeder/Nye%20Billeder/PXL_20230901_094655150.MP~3.jpg",
+    "http://localhost:5173/Img/Billeder/Billeder/Nye%20Billeder/PXL_20230901_094214511.LONG_EXPOSURE-01.COVER~3.jpg",
+    "http://localhost:5173/Img/Billeder/Billeder/Nye%20Billeder/PXL_20230831_183905885.NIGHT~2.jpg",
   ];
 
   return (

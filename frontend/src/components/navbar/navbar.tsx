@@ -40,7 +40,7 @@ function Navbar() {
 						<a href="/Omos">Om os</a>
 						<a href="/Togbar">Tog bar</a>
 						<a href="/Kontakt">Kontakt</a>
-						<a href="/Bestilonline">Bestil Online</a>
+						<a href="/Vaerelser">Bestil Online</a>
 					</div>
 				</div>
 

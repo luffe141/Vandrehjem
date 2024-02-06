@@ -115,7 +115,7 @@ if (rootElement) {
             path="Bestilonline"
             element={
               <Layout>
-                <Bestilonline />
+                <Vaerelser />
               </Layout>
             }
           />
