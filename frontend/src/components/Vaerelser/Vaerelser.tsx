@@ -3,10 +3,10 @@ import ImageSliderTwo from "./ImageSliderTwo";
 
 const Vaerelser = () => {
   const images: string[] = [
-    "https://picsum.photos/id/237/1100/500",
-    "https://picsum.photos/id/49/1100/500",
-    "https://picsum.photos/id/159/1100/500",
-  ];
+    "http://localhost:5173/Img/Billeder/Billeder/Vandrerhjem/vaerelse1.jpg",
+    "http://localhost:5173/Img/Billeder/Billeder/Vandrerhjem/vaerelse2.jpg",
+    "http://localhost:5173/Img/Billeder/Billeder/Vandrerhjem/danhostel-gjerrild.jpg", 
+  ];      
 
   return (
     <div className={styles.vaerelserContainer}>

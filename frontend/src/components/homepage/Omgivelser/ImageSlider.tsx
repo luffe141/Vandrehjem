@@ -19,7 +19,6 @@ const ImageSlider = ({ images }) => {
         <button className={styles.galleryBtn} onClick={prevSlide}>Previous</button>
         <div className={styles.galleryImgContainer}>
         <img src={images[currentImageIndex]} alt={`Slide ${currentImageIndex + 1}`} />
-        <p>img text here</p>
         </div>
         <button className={styles.galleryBtn} onClick={nextSlide}>Next</button>
       </div>

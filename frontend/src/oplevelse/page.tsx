@@ -7,7 +7,7 @@ function page() {
         <div>
           <img src="https://placehold.co/600x400" alt="" />
         </div>
-        <div>
+        <div className={style.djursContainertxt}>
           <h2>Djurs sommerland</h2>
           <p>
             Danmarks største forlystelsespark, med vilde forlystelser og mange
@@ -39,7 +39,7 @@ function page() {
         <div>
           <img src="https://placehold.co/600x400" />
         </div>
-        <div>
+        <div className={style.nationalContainertxt}>
           <h2>Nationalpark Mols Bjerge</h2>
           <p>
             Nationalpark Mols Bjerge er en naturskøn perle beliggende på
@@ -53,7 +53,7 @@ function page() {
       </div>
 
       <div className={style.skandiContainer}>
-        <div>
+        <div className={style.skandiContainertxt}>
           <h2>Skandinavisk Dyrepark</h2>
           <p>
             Skandinavisk Dyrepark er en spændende destination beliggende ved
@@ -73,7 +73,7 @@ function page() {
         <div>
           <img src="https://placehold.co/600x400" />
         </div>
-        <div>
+        <div className={style.reeContainertxt}>
           <h2>Ree Park Safari</h2>
           <p>
             Ree Park Safari er en spændende dyrepark beliggende i Ebeltoft,
@@ -89,7 +89,7 @@ function page() {
       </div>
 
       <div className={style.gjerrildContainer}>
-        <div>
+        <div className={style.gjerrildContainertxt}>
           <h2>Gjerrild Nordstrand</h2>
           <p>
             Gjerrild Nordstrand, beliggende på Djursland, er en betagende
