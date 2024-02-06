@@ -28,18 +28,19 @@ func NewStorage(uri string, database string, collection string, uniqueFields ...
 
 	db := client.Database(database)
 	col := db.Collection(collection)
-
-	for _, field := range uniqueFields {
-		indexModel := mongo.IndexModel{
-			Keys:    bson.M{field: 1},
-			Options: options.Index().SetUnique(false),
-		}
-		_, err = col.Indexes().CreateOne(ctx, indexModel)
-		if err != nil {
-			log.Fatal(err)
-		}
-	}
-
+	/*
+	   // commented uniques
+	   	for _, field := range uniqueFields {
+	   		indexModel := mongo.IndexModel{
+	   			Keys:    bson.M{field: 1},
+	   			Options: options.Index().SetUnique(false),
+	   		}
+	   		_, err = col.Indexes().CreateOne(ctx, indexModel)
+	   		if err != nil {
+	   			log.Fatal(err)
+	   		}
+	   	}
+	*/
 	return &Storage{Client: client, Database: db, Collection: col, Ctx: ctx, Cancel: cancel}
 }
 

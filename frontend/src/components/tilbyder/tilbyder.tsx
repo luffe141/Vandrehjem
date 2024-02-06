@@ -1,13 +1,24 @@
-import style from "./tilbyder.module.css"
+import style from "./tilbyder.module.css";
 
 function tilbyder() {
-    return (
-        <div className={style.tilbyd}>
-            <div><img src="https://placehold.co/600x400" /><p>Mad</p></div>            
-            <div><img src="https://placehold.co/600x400" /><p>Konferancerum</p></div>
-            <div><img src="https://placehold.co/600x400" /><p>Bar</p></div>
-        </div>
-    );
+  return (
+    <div className={style.tilbyd}>
+      <div>
+        {" "}
+        <h2>Mad</h2> <img src="https://placehold.co/600x400" />
+      </div>
+      <div>
+        {" "}
+        <h2>Konferancerum</h2>
+        <img src="https://placehold.co/600x400" />
+      </div>
+      <div>
+        {" "}
+        <h2>Bar</h2>
+        <img src="https://placehold.co/600x400" />
+      </div>
+    </div>
+  );
 }
 
 export default tilbyder;
