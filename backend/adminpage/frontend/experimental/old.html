@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Admin Dashboard</title>
+	<!-- Bootstrap CSS -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<style>
+		/* Custom styles */
+		.card-header {
+			background-color: #f8f9fa;
+			color: #333;
+			border-bottom: none;
+		}
+		.card {
+			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+			margin-bottom: 30px;
+		}
+		.btn-custom {
+			background-color: #0056b3;
+			border-color: #004b9a;
+			color: white;
+		}
+		.btn-custom:hover {
+			background-color: #004b9a;
+			border-color: #003d82;
+		}
+		.form-control, .form-control-file {
+			border-radius: 0;
+		}
+		.form-label {
+			font-weight: bold;
+		}
+		/* Add other custom styles as needed */
+	</style>
+</head>
+<body>
+<div class="container mt-5">
+	<h1>Admin Dashboard</h1>
+
+	<div class="container">
+		<h2 class="my-4 text-center">Tilføj/opdater et nyt Review</h2>
+		<div class="row">
+			<!-- Use a loop here to create these columns dynamically if you have many images -->
+			<div class="col-md-4 mb-4">
+				<div class="card">
+					<img src="path_to_your_image.jpg" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						<a href="#" class="btn btn-primary">Go somewhere</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 mb-4">
+				<div class="card">
+					<img src="path_to_your_image.jpg" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Card title 2</h5>
+						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						<a href="#" class="btn btn-primary">Go somewhere</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Repeat the above div for each image you have -->
+		</div>
+		<div class="text-center">
+			<button class="btn btn-primary mr-2">Opret</button>
+			<button class="btn btn-danger">Delete</button>
+		</div>
+	</div>
+
+	<!-- Add the Bootstrap JS and its dependencies below -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.0/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<!-- Room List with Drag and Drop -->
+	<div id="roomList" class="list-group">
+		<!-- Example Room Item -->
+
+		<div class="list-group-item" data-id="room2" draggable="true">
+			<span class="room-name">Room 2</span>
+			<button class="btn btn-primary new-room">New</button>
+			<button class="btn btn-info clone-room">Clone</button>
+			<button class="btn btn-primary edit-room">Edit</button>
+			<button class="btn btn-danger delete-room">Delete</button>
+		</div>
+		<div class="list-group-item" data-id="room3" draggable="true">
+			<span class="room-name">Room 3</span>
+			<button class="btn btn-primary new-room">New</button>
+			<button class="btn btn-info clone-room">Clone</button>
+			<button class="btn btn-primary edit-room">Edit</button>
+			<button class="btn btn-danger delete-room">Delete</button>
+		</div>
+		<!-- More rooms dynamically inserted here -->
+	</div>
+
+	<!-- Add/Edit Room Form -->
+	<form id="roomForm">
+		<!-- Form inputs for room details, including dynamic slider fields -->
+		<!-- ... -->
+		<button type="submit" class="btn btn-success">Save Room</button>
+	</form>
+
+
+	<!-- Add/Edit Room Section -->
+	<div class="row mb-4">
+		<div class="col-lg-12">
+			<div class="card">
+				<div class="card-header">Tilføj/opdater et nyt værelse</div>
+				<div class="card-body">
+					<form action="/addRoom" method="POST">
+						<div class="form-group">
+							<label for="roomName" class="form-label">Værelsets navn:</label>
+							<input type="text" class="form-control" id="roomName" name="roomName" required>
+						</div>
+						<div class="form-group">
+							<label for="roomInfo" class="form-label">Info:</label>
+							<textarea class="form-control" id="roomInfo" name="roomInfo" rows="3"></textarea>
+						</div>
+						<div class="form-group">
+							<label for="roomPrice" class="form-label">Pris:</label>
+							<input type="text" class="form-control" id="roomPrice" name="roomPrice" required>
+						</div>
+						<div class="form-group slider-container">
+							<label for="roomSlider1" class="form-label">Slider:</label>
+							<input type="text" class="form-control mb-2" id="roomSlider1" name="slider[]" placeholder="URL til slider billede">
+							<!-- Placeholder for additional slider inputs -->
+						</div>
+						<button type="button" class="btn btn-secondary mb-3" id="addSliderBtn">Tilføj Slider</button>
+						<button type="submit" class="btn btn-custom">Opdater</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<!-- Add/Edit Room Section -->
+	<div class="row mb-4">
+		<div class="col-lg-12">
+			<div class="card">
+				<div class="card-header">Tilføj/opdater et nyt værelse</div>
+				<div class="card-body">
+					<form action="/addRoom" method="POST">
+						<!-- Slider can be a placeholder if you don't have the JS for it yet -->
+						<div class="form-group">
+							<label for="roomSlider" class="form-label">Slider:</label>
+							<input type="text" class="form-control" id="roomSlider" placeholder="Slider placeholder" name="roomSlider">
+						</div>
+						<!-- Rest of the room form fields -->
+						<div class="form-group">
+							<label for="roomName" class="form-label">Værelsets navn:</label>
+							<input type="text" class="form-control" id="roomName" name="roomName" required>
+						</div>
+						<div class="form-group">
+							<label for="roomInfo" class="form-label">Info:</label>
+							<textarea class="form-control" id="roomInfo" name="roomInfo" rows="3"></textarea>
+						</div>
+						<div class="form-group">
+							<label for="roomPrice" class="form-label">Pris:</label>
+							<input type="text" class="form-control" id="roomPrice" name="roomPrice" required>
+						</div>
+						<button type="submit" class="btn btn-custom">Opdater</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Repeat similar structure for "Add/Edit Review" and "Add/Edit About Us" sections -->
+
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+
+	document.addEventListener('DOMContentLoaded', function() {
+		const addSliderBtn = document.getElementById('addSliderBtn');
+		let sliderCount = 1;
+
+		addSliderBtn.addEventListener('click', function() {
+			sliderCount++;
+			const newSliderInput = document.createElement('input');
+			newSliderInput.type = 'text';
+			newSliderInput.name = 'slider[]';
+			newSliderInput.id = 'roomSlider' + sliderCount;
+			newSliderInput.placeholder = 'URL til slider billede';
+			newSliderInput.classList.add('form-control', 'mb-2');
+
+			const sliderContainer = document.querySelector('.slider-container');
+			sliderContainer.appendChild(newSliderInput);
+		});
+	});
+
+</script>
+<script>
+	// Helper function to add slider input
+	function addSliderInput(value = '') {
+		const sliderContainer = document.querySelector('.slider-container');
+		const newSliderCount = sliderContainer.children.length + 1;
+		const newSliderInput = document.createElement('input');
+		newSliderInput.type = 'text';
+		newSliderInput.name = `slider${newSliderCount}`;
+		newSliderInput.value = value;
+		newSliderInput.classList.add('form-control', 'mb-2', 'slider-input');
+		newSliderInput.placeholder = 'URL til slider billede';
+		newSliderInput.onchange = updateRoom; // Attach onchange handler
+		sliderContainer.appendChild(newSliderInput);
+	}
+
+	// Handle form submission for adding or updating rooms
+	document.getElementById('roomForm').onsubmit = function(event) {
+		event.preventDefault();
+		const formData = new FormData(event.target);
+		const data = {};
+		formData.forEach((value, key) => {
+			// Handle slider images as an array
+			if (key.startsWith('slider')) {
+				if (!data.sliders) {
+					data.sliders = [];
+				}
+				data.sliders.push(value);
+			} else {
+				data[key] = value;
+			}
+		});
+		// Send data to backend via AJAX (using Fetch API)
+		fetch('/api/rooms/', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(data),
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log('Success:', data);
+				// Update the UI or notify the user
+			})
+			.catch((error) => {
+				console.error('Error:', error);
+			});
+	};
+
+	// Live update function
+	function updateRoom(event) {
+		const input = event.target;
+		const key = input.name;
+		const value = input.value;
+		// Assuming each room has a unique ID stored in a hidden input field
+		const roomId = document.getElementById('roomId').value;
+
+		// Send the update to backend
+		fetch(`/updateRoom/${roomId}`, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ [key]: value }),
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log('Update success:', data);
+				// Handle success
+			})
+			.catch((error) => {
+				console.error('Update error:', error);
+			});
+	}
+
+	// Initialize any existing sliders
+	document.querySelectorAll('.slider-input').forEach(input => {
+		input.onchange = updateRoom;
+	});
+
+	// Event listener for the add slider button
+	document.getElementById('addSliderBtn').onclick = function() {
+		addSliderInput();
+	};
+</script>
+</body>
+</html>

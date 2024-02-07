@@ -2,6 +2,7 @@ package models
 
 import (
 	"backend/api/mvc/models/utility"
+	"github.com/lmbek/bekrouter/mvc/models"
 )
 
 type Event struct {
@@ -39,4 +40,4 @@ func (*Event) GetUnique() string {
 	return "" // From your initial code, activity does not have a unique field.
 }
 
-var EventModel = &Model{IModel: &Event{}}
+var EventModel = &models.Model{IModel: &Event{}, MongodbConnection: MongodbConnection, DatabaseName: DatabaseName}
