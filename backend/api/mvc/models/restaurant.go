@@ -2,6 +2,7 @@ package models
 
 import (
 	"backend/api/mvc/models/utility"
+	"github.com/lmbek/bekrouter/mvc/models"
 )
 
 type Restaurant struct {
@@ -39,4 +40,4 @@ func (*Restaurant) GetUnique() string {
 	return "" // From your initial code, activity does not have a unique field.
 }
 
-var RestaurantModel = &Model{IModel: &Restaurant{}}
+var RestaurantModel = &models.Model{IModel: &Restaurant{}, MongodbConnection: MongodbConnection, DatabaseName: DatabaseName}

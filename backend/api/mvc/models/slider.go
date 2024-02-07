@@ -2,6 +2,7 @@ package models
 
 import (
 	"backend/api/mvc/models/utility"
+	"github.com/lmbek/bekrouter/mvc/models"
 )
 
 type Slider struct {
@@ -39,4 +40,4 @@ func (*Slider) GetUnique() string {
 	return "" // From your initial code, activity does not have a unique field.
 }
 
-var SliderModel = &Model{IModel: &Slider{}}
+var SliderModel = &models.Model{IModel: &Slider{}, MongodbConnection: MongodbConnection, DatabaseName: DatabaseName}

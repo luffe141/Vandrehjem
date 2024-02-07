@@ -2,6 +2,7 @@ package models
 
 import (
 	"backend/api/mvc/models/utility"
+	"github.com/lmbek/bekrouter/mvc/models"
 )
 
 type TrainBar struct {
@@ -39,4 +40,4 @@ func (*TrainBar) GetUnique() string {
 	return "" // From your initial code, activity does not have a unique field.
 }
 
-var TrainBarModel = &Model{IModel: &TrainBar{}}
+var TrainBarModel = &models.Model{IModel: &TrainBar{}, MongodbConnection: MongodbConnection, DatabaseName: DatabaseName}

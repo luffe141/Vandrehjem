@@ -2,6 +2,7 @@ package models
 
 import (
 	"backend/api/mvc/models/utility"
+	"github.com/lmbek/bekrouter/mvc/models"
 )
 
 type AboutUs struct {
@@ -36,4 +37,4 @@ func (*AboutUs) GetUnique() string {
 	return "" // From your initial code, activity does not have a unique field.
 }
 
-var AboutUsModel = &Model{IModel: &AboutUs{}}
+var AboutUsModel = &models.Model{IModel: &AboutUs{}, MongodbConnection: MongodbConnection, DatabaseName: DatabaseName}
