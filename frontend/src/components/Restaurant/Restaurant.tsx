@@ -1,5 +1,11 @@
 import style from "./restaurant.module.css";
 
+const imgChange = (event: any) => {
+  const selectedValue = event.target.value;
+  console.log('Selected value:', selectedValue);
+};
+
+
 const Restaurant = () => {
   return (
     <div className={style.mainContainer}>
@@ -25,10 +31,10 @@ const Restaurant = () => {
           <p>Kategori</p>
         </div>
         <div>
-          <select name="meals" className={style.meals}>
-            <option value="Morgenmad">Morgenmad</option>
-            <option value="Frokost">Frokost</option>
-            <option value="Aftensmad">Aftensmad</option>
+          <select onChange={imgChange} name="meals"  className={style.meals}>
+            <option value="1">Morgenmad</option>
+            <option value="2">Frokost</option>
+            <option value="3">Aftensmad</option>
           </select>
         </div>
       </div>
