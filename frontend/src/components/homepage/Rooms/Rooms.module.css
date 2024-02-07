@@ -3,20 +3,19 @@
     margin: 15px 0px;
 }
 .container{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+ display: flex;
     justify-content: center;
     border: 2px solid black;
     padding: 50px 0 50px 0;
+    margin: 0px 300px 0 300px;
+    
 }
 h1{
     text-align: center;
 }
-.roomImgDiv{
-    grid-column: 1/2;
-}
+
 .roomInfo{
-    grid-column: 2/3;
+
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -38,23 +37,34 @@ button{
 .topLeftImg{
     position: relative;
     top: -30px;
+    left: 10px;
+    width: 150px;
 }
 .topRightImg{
     position: relative;
     left: 20px;
-    top: -10px;
+    top: 0px;
+    width: 150px;
 }
 .bottomLeftImg{
     position: relative;
     top: -20px;
+    width: 150px;
+    left: -20px;
 }
 .bottomRightImg{
     position: relative;
-    left: 15px;
+    left: -5px;
+    width: 150px;
 }
 .bigContainer{
    
 }
 .roomH1{
+    text-align: center;
+}
+.roomText{
+    width: 300px;
+    margin: 0 auto;
     text-align: center;
 }
