@@ -41,6 +41,10 @@
 	background-color: #997e48;
 }
 
+.topnav .myLinks :last-child:hover {
+	background-color: #8a7140;
+}
+
 .topnav .myLinks > * {
 	background-color: #DEB666;
 }
