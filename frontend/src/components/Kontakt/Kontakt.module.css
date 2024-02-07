@@ -6,7 +6,7 @@
     display: flex;
     justify-content: start;
 }
-h1{
+.kontaktTitle{
     text-align: left;
 }
 .input{
