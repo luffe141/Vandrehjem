@@ -9,6 +9,13 @@
     justify-content: center;
 }
 
+.madBilleder img{
+    width: 480px;
+    padding: 20px;
+    padding-left: 0px;
+    
+}
+
 .highlightedContainer img{
     width: 450px;
     margin-left: 20px;
