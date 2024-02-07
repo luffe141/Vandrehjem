@@ -7,10 +7,22 @@
 
 .kontakt {
   grid-column: 1/2;
+  width: 300px;
+}
+
+.kontakt p {
+margin-left: 100px;
+margin-top: 20px;
 }
 
 .links {
   grid-column: 2/3;
+  width: 200px
+}
+
+.links p{
+  margin-left: 35px;
+  margin-top: 20px;
 }
 
 .sponsors {

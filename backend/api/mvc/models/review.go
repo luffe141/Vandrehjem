@@ -2,6 +2,7 @@ package models
 
 import (
 	"backend/api/mvc/models/utility"
+	"github.com/lmbek/bekrouter/mvc/models"
 )
 
 type Review struct {
@@ -40,4 +41,4 @@ func (*Review) GetUnique() string {
 	return "" // From your initial code, activity does not have a unique field.
 }
 
-var ReviewModel = &Model{IModel: &Review{}}
+var ReviewModel = &models.Model{IModel: &Review{}, MongodbConnection: MongodbConnection, DatabaseName: DatabaseName}
