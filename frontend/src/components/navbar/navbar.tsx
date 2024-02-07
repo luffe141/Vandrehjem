@@ -22,11 +22,11 @@ function Navbar() {
     <nav>
 
 				<div className={styles.topnav}>
-					<a href="/" className={styles.logo}><img src="logo.svg" alt="logo"/></a>
+					<a href="/" className={styles.logo}><img src="Images/logo.svg" alt="logo"/></a>
 
 					{/*<!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->*/}
 					<a className={styles.icon} onClick={toggleNav}>
-						<img src="burger-icon.svg" alt="burger_menu_icon"/>
+						<img src="Images/burger-icon.svg" alt="burger_menu_icon"/>
 					</a>
 
 					{/*<!-- Navigation links (hidden by default) -->*/}
@@ -45,7 +45,6 @@ function Navbar() {
 				</div>
 
 			</nav>
-
 
   );
 }
