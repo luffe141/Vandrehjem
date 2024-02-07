@@ -32,12 +32,13 @@ function Navbar() {
 					{/*<!-- Navigation links (hidden by default) -->*/}
 					<div id="myLinks" className={styles.myLinks}>
 						<a href="/">Forside</a>
-						<a href="/Detsker">Det sker</a>
+						<a href="/Detsker">Events</a>
 						<a href="/Vaerelser">Værelser</a>
 						<a href="/Oplevelse">Oplevelser</a>
 						<a href="/Restaurant">Restaurant</a>
 						<a href="/Galleri">Galleri</a>
 						<a href="/Omos">Om os</a>
+						<a href="/Togbar">Tog bar</a>
 						<a href="/Kontakt">Kontakt</a>
 						<a href="/Bestilonline">Bestil Online</a>
 					</div>

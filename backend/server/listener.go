@@ -4,6 +4,6 @@ package server
 
 import "net/http"
 
-func (server webserver) Listen(mux *http.ServeMux) error {
-	return http.ListenAndServe(server.addr+":"+server.port, mux)
+func (server *Server) listen() error {
+	return http.ListenAndServe(server.addr+":"+server.port, server.mux)
 }

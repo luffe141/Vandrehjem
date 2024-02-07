@@ -12,6 +12,7 @@ import Galleri from "./components/Galleri/Galleri.tsx";
 import Omos from "./components/Omos/Omos.tsx";
 import Kontakt from "./components/Kontakt/Kontakt.tsx";
 import Bestilonline from "./components/Bestilonline/Bestilonline.tsx";
+import Togbar from "./components/Togbar/Togbar.tsx"
 
 const rootElement: HTMLElement | null = document.getElementById("root");
 
@@ -79,6 +80,15 @@ if (rootElement) {
             element={
               <Layout>
                 <Galleri />
+              </Layout>
+            }
+          />
+
+          <Route
+            path="Togbar"
+            element={
+              <Layout>
+                <Togbar />
               </Layout>
             }
           />

@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import styles from './Omgivelser.module.css'
+import styles from './Togbar.module.css'
 
-const ImageSlider = ({ images }) => {
+const ImageSliderTre = ({ images }) => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
     const nextSlide = () => {
@@ -17,12 +17,10 @@ const ImageSlider = ({ images }) => {
     return (
       <div className={styles.imageSliderDiv}>
         <button className={styles.galleryBtn} onClick={prevSlide}>Previous</button>
-        <div className={styles.galleryImgContainer}>
-        <img src={images[currentImageIndex]} alt={`Slide ${currentImageIndex + 1}`} />
-        </div>
+        <div className={styles.galleryImgContainer}><img src={images[currentImageIndex]} alt={`Slide ${currentImageIndex + 1}`} /></div>
         <button className={styles.galleryBtn} onClick={nextSlide}>Next</button>
       </div>
     );
   };
 
-export default ImageSlider
+export default ImageSliderTre
