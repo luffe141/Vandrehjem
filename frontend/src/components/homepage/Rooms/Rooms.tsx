@@ -4,18 +4,18 @@ import styles from "./Rooms.module.css";
 const Rooms = () => {
   return (
 
-    <div>
-      <h1 className={styles.h1}>Rooms</h1>
+    <div className={styles.bigContainer}>
+      <h1 className={styles.roomH1}>Rooms</h1>
       <div className={styles.container}>
         <div className={styles.roomDiv}>
           <div className={styles.roomImgDiv}>
             <div className={styles.topImgContainer}>
-              <img src="https://placehold.jp/250x150.png" alt="" />
-              <img src="https://placehold.jp/100x100.png" alt="" />
+              <img className={styles.topLeftImg} src="https://placehold.jp/150x150.png" alt="" />
+              <img className={styles.topRightImg} src="https://placehold.jp/150x150.png" alt="" />
             </div>
             <div className={styles.bottomImgContainer}>
-              <img src="https://placehold.jp/100x100.png" alt="" />
-              <img src="https://placehold.jp/100x100.png" alt="" />
+              <img className={styles.bottomLeftImg} src="https://placehold.jp/150x150.png" alt="" />
+              <img className={styles.bottomRightImg} src="https://placehold.jp/150x150.png" alt="" />
             </div>
           </div>
         </div>

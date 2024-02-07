@@ -7,6 +7,7 @@
     grid-template-columns: 1fr 1fr;
     justify-content: center;
     border: 2px solid black;
+    padding: 50px 0 50px 0;
 }
 h1{
     text-align: center;
@@ -33,4 +34,27 @@ button{
 .bottomImgContainer{
     display: flex;
     justify-content: center;
+}
+.topLeftImg{
+    position: relative;
+    top: -30px;
+}
+.topRightImg{
+    position: relative;
+    left: 20px;
+    top: -10px;
+}
+.bottomLeftImg{
+    position: relative;
+    top: -20px;
+}
+.bottomRightImg{
+    position: relative;
+    left: 15px;
+}
+.bigContainer{
+   
+}
+.roomH1{
+    text-align: center;
 }

@@ -2,10 +2,10 @@ import styles from "./Galleri.module.css";
 import React from "react";
 
 const Galleri = () => {
+
   const imageUrls = [
     "https://placehold.co/200x200",
-    "https://placehold.co/200x200",
-    "https://placehold.co/200x200",
+  
   ];
 
   return (
