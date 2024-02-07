@@ -1,6 +1,8 @@
 go 1.22rc2
 
+toolchain go1.22.0
+
 use (
-    .
-    ./backend
+	.
+	./backend
 )

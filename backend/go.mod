@@ -2,8 +2,10 @@ module backend
 
 go 1.22rc2
 
+toolchain go1.22.0
+
 require (
-	github.com/lmbek/bekrouter v0.4.0
+	github.com/lmbek/bekrouter v0.7.0
 	go.mongodb.org/mongo-driver v1.13.1
 )
 

@@ -2,6 +2,7 @@ package models
 
 import (
 	"backend/api/mvc/models/utility"
+	"github.com/lmbek/bekrouter/mvc/models"
 )
 
 type Gallery struct {
@@ -36,4 +37,4 @@ func (*Gallery) GetUnique() string {
 	return "" // From your initial code, activity does not have a unique field.
 }
 
-var GalleryModel = &Model{IModel: &Gallery{}}
+var GalleryModel = &models.Model{IModel: &Gallery{}, MongodbConnection: MongodbConnection, DatabaseName: DatabaseName}

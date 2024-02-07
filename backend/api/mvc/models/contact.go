@@ -2,6 +2,7 @@ package models
 
 import (
 	"backend/api/mvc/models/utility"
+	"github.com/lmbek/bekrouter/mvc/models"
 )
 
 // TODO: test if json field thing is even needed
@@ -42,4 +43,4 @@ func (*Contact) GetUnique() string {
 	return "" // From your initial code, activity does not have a unique field.
 }
 
-var ContactModel = &Model{IModel: &Contact{}}
+var ContactModel = &models.Model{IModel: &Contact{}, MongodbConnection: MongodbConnection, DatabaseName: DatabaseName}

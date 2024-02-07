@@ -18,6 +18,7 @@ func New(addr string, port string, mux *http.ServeMux) *Server {
 func (server *Server) Start() error {
 	// start server (listen on port)
 	fmt.Println("Starting api server on: http://" + server.addr + ":" + server.port)
-	fmt.Println("Example on: http://" + server.addr + ":" + server.port + "/api/activities/")
+	fmt.Println("API like activities is on: http://" + server.addr + ":" + server.port + "/api/activities/")
+	fmt.Println("ADMIN on: http://" + server.addr + ":" + server.port + "/admin/")
 	return server.listen()
 }
