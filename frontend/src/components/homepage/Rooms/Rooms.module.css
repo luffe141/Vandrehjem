@@ -35,9 +35,15 @@ button a {
     display: flex;
     justify-content: center;
 }
+.topImgContainer img {
+    margin: 3px;
+}
 .bottomImgContainer{
     display: flex;
     justify-content: center;
+}
+.bottomImgContainer img {
+    margin: 3px;
 }
 
 @media screen and (max-width: 430px) {
