@@ -6,11 +6,11 @@ import Slideshow from "./Slideshow";
 
 const Togbar = () => {
   const images: string[] = [
-    "http://localhost:5173/Img/Billeder/Billeder/Nye%20Billeder/PXL_20230831_175755934.MP~2.jpg",
-    "http://localhost:5173/Img/Billeder/Billeder/Nye%20Billeder/PXL_20230831_180005152.MP~2.jpg",
-    "http://localhost:5173/Img/Billeder/Billeder/Nye%20Billeder/PXL_20230901_094655150.MP~3.jpg",
-    "http://localhost:5173/Img/Billeder/Billeder/Nye%20Billeder/PXL_20230901_094214511.LONG_EXPOSURE-01.COVER~3.jpg",
-    "http://localhost:5173/Img/Billeder/Billeder/Nye%20Billeder/PXL_20230831_183905885.NIGHT~2.jpg",
+    "Img/Billeder/Billeder/Nye%20Billeder/PXL_20230831_175755934.MP~2.jpg",
+    "Img/Billeder/Billeder/Nye%20Billeder/PXL_20230831_180005152.MP~2.jpg",
+    "Img/Billeder/Billeder/Nye%20Billeder/PXL_20230901_094655150.MP~3.jpg",
+    "Img/Billeder/Billeder/Nye%20Billeder/PXL_20230901_094214511.LONG_EXPOSURE-01.COVER~3.jpg",
+    "Img/Billeder/Billeder/Nye%20Billeder/PXL_20230831_183905885.NIGHT~2.jpg",
   ];
 
   return (
@@ -18,7 +18,7 @@ const Togbar = () => {
       <div>
         <img
           className={styles.heroBanner}
-          src="http://localhost:5173/Img/Billeder/Billeder/Nye%20Billeder/PXL_20230831_183848378.NIGHT~2.jpg"
+          src="Img/Billeder/Billeder/Nye%20Billeder/PXL_20230831_183848378.NIGHT~2.jpg"
           alt="banner_img"
         />
       </div>

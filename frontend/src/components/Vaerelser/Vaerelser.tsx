@@ -3,9 +3,9 @@ import ImageSliderTwo from "./ImageSliderTwo";
 
 const Vaerelser = () => {
   const images: string[] = [
-    "http://localhost:5173/Img/Billeder/Billeder/Vandrerhjem/vaerelse1.jpg",
-    "http://localhost:5173/Img/Billeder/Billeder/Vandrerhjem/vaerelse2.jpg",
-    "http://localhost:5173/Img/Billeder/Billeder/Vandrerhjem/danhostel-gjerrild.jpg", 
+    "Img/Billeder/Billeder/Vandrerhjem/vaerelse1.jpg",
+    "Img/Billeder/Billeder/Vandrerhjem/vaerelse2.jpg",
+    "Img/Billeder/Billeder/Vandrerhjem/danhostel-gjerrild.jpg", 
   ];      
 
   return (
@@ -63,7 +63,7 @@ const Vaerelser = () => {
       <div className={styles.infoBoxes}>
         <div className={styles.paragraphBox}>
           <div className={styles.iconBox}>
-            <img src="family.png" alt="icon" />
+            <img src="Images/family.png" alt="family icon" />
           </div>
           <div className={styles.iconTextBox}>
             <p>Maks. Gæster</p>
@@ -72,7 +72,7 @@ const Vaerelser = () => {
         </div>
         <div className={styles.paragraphBox}>
           <div className={styles.iconBox}>
-            <img src="calendar.png" alt="icon" />
+            <img src="Images/calendar.png" alt="calender icon" />
           </div>
           <div className={styles.iconTextBox}>
             <p>Booking af overnatninger</p>
@@ -81,7 +81,7 @@ const Vaerelser = () => {
         </div>
         <div className={styles.paragraphBox}>
           <div className={styles.iconBox}>
-            <img src="bed.png" alt="icon" />
+            <img src="Images/bed.png" alt="bed icon" />
           </div>
           <div className={styles.iconTextBox}>
             <p>Sengetype</p>
@@ -90,7 +90,7 @@ const Vaerelser = () => {
         </div>
         <div className={styles.paragraphBox}>
           <div className={styles.iconBox}>
-            <img src="layout.png" alt="icon" />
+            <img src="Images/layout.png" alt="icon" />
           </div>
           <div className={styles.iconTextBox}>
             <p>Areal</p>

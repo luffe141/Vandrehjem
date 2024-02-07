@@ -27,7 +27,7 @@ const Rooms = () => {
             Porro maxime adipisci perferendis cum debitis facere facilis
             quisquam repellat tempore.
           </p>
-          <label htmlFor="">Pris,-</label>
+          <label htmlFor="">Pris,- 495,00</label>
           <button>Book nu</button>
         </div>
       </div>

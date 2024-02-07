@@ -22,12 +22,11 @@ function footer() {
         <h2 className={style.sponsorH}>Sponsorer</h2>
         <div className={style.sponsors}>
           <div>
-            <img src="https://placehold.co/600x400" />
+            <img src="Images/logo.svg" />
           </div>
 
           <div className={style.smspons}>
-            <img src="https://placehold.co/300x90" />
-            <img src="https://placehold.co/300x90" />
+            <img src="Img/Billeder/Billeder/logoer mm/LAG-LOGO.png" />
           </div>
         </div>
       </div>
