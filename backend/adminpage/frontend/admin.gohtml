@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:;base64,=">
+    <link href="/default.css" rel="stylesheet">
+</head>
+<body>
+    <noscript>Warning: JavaScript is not enabled</noscript>
+    <h2>Tilføj/opdater et nyt galleri</h2>
+
+    {{if .}}
+        <!-- Dynamically check and range over images if present -->
+        {{if .images}}
+            {{with .images}} <!-- Check if .images is present and not empty -->
+                {{range .}} <!-- Range over the slice of images -->
+                <div>
+                    <img src="/{{.}}" alt="Gallery Image">
+                    <div>
+                        <button>Slet</button>
+                        <button>Rediger</button>
+                    </div>
+                </div>
+                {{end}}
+            {{end}}
+        {{end}}
+    {{end}}
+</body>
+</html>

@@ -33,7 +33,7 @@ func (*Slider) Validate(data map[string]any) error {
 
 func (*Slider) GetCollectionName() string {
 
-	return "slider"
+	return "sliders"
 }
 
 func (*Slider) GetUnique() string {

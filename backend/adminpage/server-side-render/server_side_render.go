@@ -1,17 +1,25 @@
-package server_side_render
+package serverSideRender
 
 import (
+	"bytes"
 	"html/template"
-	"net/http"
 )
 
-func ServerSideRender(response http.ResponseWriter, file any, htmlTemplate *template.Template) error {
-	// Execute the template, passing any data if needed
-	err := htmlTemplate.Execute(response, file)
+// Prepare compiles the template with given data and returns the result as a string.
+func Prepare(data any, html string) (string, error) {
+	var buffer bytes.Buffer
+
+	// Parse the HTML template string
+	htmlTemplate, err := template.New("template").Parse(html)
 	if err != nil {
-		http.Error(response, err.Error(), http.StatusInternalServerError)
-		return nil
+		return "", err
+	}
+	// Execute the template into a buffer instead of directly to response
+	err = htmlTemplate.Execute(&buffer, data)
+	if err != nil {
+		return "", err
 	}
 
-	return err
+	// Return the buffer content as a string
+	return buffer.String(), nil
 }

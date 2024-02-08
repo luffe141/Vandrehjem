@@ -34,7 +34,7 @@ func (*Activity) Validate(data map[string]any) error {
 
 func (*Activity) GetCollectionName() string {
 
-	return "activity"
+	return "activities"
 }
 
 func (*Activity) GetUnique() string {

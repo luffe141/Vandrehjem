@@ -33,7 +33,7 @@ func (*Restaurant) Validate(data map[string]any) error {
 
 func (*Restaurant) GetCollectionName() string {
 
-	return "restaurant"
+	return "restaurants"
 }
 
 func (*Restaurant) GetUnique() string {

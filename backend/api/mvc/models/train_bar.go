@@ -33,7 +33,7 @@ func (*TrainBar) Validate(data map[string]any) error {
 
 func (*TrainBar) GetCollectionName() string {
 
-	return "train bar"
+	return "train bars"
 }
 
 func (*TrainBar) GetUnique() string {

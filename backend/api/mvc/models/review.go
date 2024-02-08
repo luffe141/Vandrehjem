@@ -34,7 +34,7 @@ func (*Review) Validate(data map[string]any) error {
 
 func (*Review) GetCollectionName() string {
 
-	return "review"
+	return "reviews"
 }
 
 func (*Review) GetUnique() string {

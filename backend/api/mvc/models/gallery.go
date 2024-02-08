@@ -7,8 +7,8 @@ import (
 
 type Gallery struct {
 	//	_Id  string
-	Title  string   `json:"title"`
-	Images []string `json:"images"`
+	Title  string   `json:"title" bson:"title"`
+	Images []string `json:"images" bson:"images"`
 }
 
 func (*Gallery) CheckRequired(data map[string]interface{}) error {
@@ -30,7 +30,7 @@ func (*Gallery) Validate(data map[string]any) error {
 
 func (*Gallery) GetCollectionName() string {
 
-	return "gallery"
+	return "galleries"
 }
 
 func (*Gallery) GetUnique() string {

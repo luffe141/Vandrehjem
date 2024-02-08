@@ -7,13 +7,13 @@ import (
 
 type Room struct {
 	//	_Id  string
-	Name    string   `json:"name"`
-	Title   string   `json:"title"`
-	Text    string   `json:"text"`
-	Img     string   `json:"img"`
-	Price   string   `json:"price"`
-	Slider  []string `json:"slider"`
-	Content string   `json:"content"`
+	Name    string   `json:"name" bson:"name"`
+	Title   string   `json:"title" bson:"title"`
+	Text    string   `json:"text" bson:"text"`
+	Img     string   `json:"img" bson:"img"`
+	Price   string   `json:"price" bson:"price"`
+	Slider  []string `json:"slider" bson:"slider"`
+	Content string   `json:"content" bson:"content"`
 }
 
 func (*Room) CheckRequired(data map[string]interface{}) error {
@@ -35,7 +35,7 @@ func (*Room) Validate(data map[string]any) error {
 
 func (*Room) GetCollectionName() string {
 
-	return "room"
+	return "rooms"
 }
 
 func (*Room) GetUnique() string {

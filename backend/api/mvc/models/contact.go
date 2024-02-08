@@ -36,7 +36,7 @@ func (*Contact) Validate(data map[string]any) error {
 
 func (*Contact) GetCollectionName() string {
 
-	return "contact"
+	return "contacts"
 }
 
 func (*Contact) GetUnique() string {
