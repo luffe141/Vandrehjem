@@ -4,7 +4,7 @@ const Kontakt = () => {
   return (
     <div className={style.container}>
       <div>
-        <h1>Kontakt</h1>
+        <h1 className={style.kontaktTitle}>Kontakt</h1>
         <div className={style.kontaktContainer}>
           <p className={style.kontaktText}>
             Hvis du har et spørgsmål eller kan vi på nogen anden måde kan hjælpe

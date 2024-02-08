@@ -37,6 +37,14 @@
     border-bottom: #F8E3C6 2px solid;
 }
 
+.topnav .myLinks :last-child {
+	background-color: #997e48;
+}
+
+.topnav .myLinks :last-child:hover {
+	background-color: #8a7140;
+}
+
 .topnav .myLinks > * {
 	background-color: #DEB666;
 }

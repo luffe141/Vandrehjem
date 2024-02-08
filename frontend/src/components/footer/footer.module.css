@@ -36,8 +36,12 @@ margin-top: 20px;
 }
 
 .smspons {
-    display: flex;
+  display: flex;
   flex-direction: column;
+}
+
+.smspons img {
+  height: 100%;
 }
 
 .sponsorH{

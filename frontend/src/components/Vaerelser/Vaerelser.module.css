@@ -70,6 +70,8 @@
     margin: 10px 5px;
 }
 
+
+
 .bookingContainer p:not(:first-of-type), .bookingContainer form, .bookingContainer input {
     width: 96%;
     margin: 5px auto;
@@ -78,6 +80,10 @@
 .bookingGreyBG {
     background-color: #F5F3F0;
     border-bottom: black solid 1px;
+}
+
+.bookingGreyBG p {
+    padding: 3px;
 }
 
 .bookingContainer :nth-child(3) p {
@@ -100,6 +106,7 @@
 
 .roomInfo li {
     margin: 0px 0px 0px 10px;
+    list-style-type: none;
 }
 
 
