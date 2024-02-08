@@ -9,13 +9,15 @@
     justify-content: space-around;   
 }
 
- 
-
 .galleryImgContainer {
-    width: 300px;
-    height: 360px;
-    background-color: #ffffff;
+    width: 700px;
+    height: 460px;
     border: black solid 1px;
+}
+
+.galleryImgContainer img {
+    height: 100%;
+    width: 100%;
 }
 
 .galleryImgContainer p {

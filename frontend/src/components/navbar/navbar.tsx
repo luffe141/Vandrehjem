@@ -22,29 +22,29 @@ function Navbar() {
     <nav>
 
 				<div className={styles.topnav}>
-					<a href="/" className={styles.logo}><img src="logo.svg" alt="logo"/></a>
+					<a href="/" className={styles.logo}><img src="Images/logo.svg" alt="logo"/></a>
 
 					{/*<!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->*/}
 					<a className={styles.icon} onClick={toggleNav}>
-						<img src="burger-icon.svg" alt="burger_menu_icon"/>
+						<img src="Images/burger-icon.svg" alt="burger_menu_icon"/>
 					</a>
 
 					{/*<!-- Navigation links (hidden by default) -->*/}
 					<div id="myLinks" className={styles.myLinks}>
 						<a href="/">Forside</a>
-						<a href="/Detsker">Det sker</a>
-						<a href="/Vaerelser">Vaerelser</a>
+						<a href="/Detsker">Events</a>
+						<a href="/Vaerelser">Værelser</a>
 						<a href="/Oplevelse">Oplevelser</a>
 						<a href="/Restaurant">Restaurant</a>
 						<a href="/Galleri">Galleri</a>
 						<a href="/Omos">Om os</a>
+						<a href="/Togbar">Tog bar</a>
 						<a href="/Kontakt">Kontakt</a>
-						<a href="/Bestilonline">Bestil Online</a>
+						<a href="/Vaerelser">Bestil Online</a>
 					</div>
 				</div>
 
 			</nav>
-
 
   );
 }

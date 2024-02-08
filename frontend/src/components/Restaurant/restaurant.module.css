@@ -1,0 +1,65 @@
+.mainContainer{
+    width: 1530px;
+    margin: auto;
+}
+
+.highlightedContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.madBilleder img{
+    width: 480px;
+    padding: 20px;
+    padding-left: 0px;
+    
+}
+
+.highlightedContainer img{
+    width: 450px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+.highlightedContainer p{
+    margin-left: 20px;
+    width: 450px;
+    border: 1px solid black;
+}
+
+.menuContainer{
+
+    margin-left: 50px;
+}
+
+.menuContainer h2{
+    font-size: 30px;
+}
+
+.menuContainer p{
+    font-size: 20px;
+}
+
+.kategori{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.meals{
+    border: none;
+    font-size: 20px;
+}
+
+.morgenmad{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.morgenmad img{
+    width: 450px;
+    margin: 20px;
+    
+}

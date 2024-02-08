@@ -2,7 +2,12 @@ module backend
 
 go 1.22rc2
 
-require go.mongodb.org/mongo-driver v1.13.1
+toolchain go1.22.0
+
+require (
+	github.com/lmbek/bekrouter v0.7.0
+	go.mongodb.org/mongo-driver v1.13.1
+)
 
 require (
 	github.com/golang/snappy v0.0.1 // indirect

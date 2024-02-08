@@ -6,9 +6,9 @@ import ImageSlider from './ImageSlider';
 
 const Omgivelser = () => {
   const images: string[]  = [
-    'https://picsum.photos/id/237/300/300',
-    'https://picsum.photos/id/49/300/300',
-    'https://picsum.photos/id/159/300/300',
+    'http://localhost:5173/Img/Billeder/Billeder/Vandrerhjem/_DAH7270.jpg',
+    'http://localhost:5173/Img/Billeder/Billeder/Vandrerhjem/front2.jpg',
+    'http://localhost:5173/Img/Billeder/Billeder/Vandrerhjem/slider-1.jpg',
   ];
 
   return (

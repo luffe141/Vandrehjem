@@ -1,23 +1,24 @@
 package server
 
 import (
-	"backend/api"
 	"fmt"
+	"net/http"
 )
 
-type webserver struct {
+type Server struct {
 	addr string
 	port string
+	mux  *http.ServeMux
 }
 
-func New(addr string, port string) *webserver {
-	return &webserver{addr, port}
+func New(addr string, port string, mux *http.ServeMux) *Server {
+	return &Server{addr, port, mux}
 }
 
-func (server webserver) Start() error {
-	// set up routing
-	mux := api.AddRoutes()
+func (server *Server) Start() error {
 	// start server (listen on port)
 	fmt.Println("Starting api server on: http://" + server.addr + ":" + server.port)
-	return server.Listen(mux)
+	fmt.Println("API like activities is on: http://" + server.addr + ":" + server.port + "/api/activities/")
+	fmt.Println("ADMIN on: http://" + server.addr + ":" + server.port + "/admin/")
+	return server.listen()
 }

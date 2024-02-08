@@ -17,7 +17,7 @@
 /* gallery delen */
 .imageSliderDiv {
     border: black solid 3px;
-    height: 500px;
+    height: fit-content;
     width: 1000px;
     margin: 10px 5px;
 }
@@ -30,6 +30,7 @@
 
 .galleryImgContainer :nth-child(2) {
     width: 800px;
+    height: 500px;
 }
 
 .galleryImgContainer :not(:nth-child(2)) {
@@ -69,6 +70,8 @@
     margin: 10px 5px;
 }
 
+
+
 .bookingContainer p:not(:first-of-type), .bookingContainer form, .bookingContainer input {
     width: 96%;
     margin: 5px auto;
@@ -77,6 +80,10 @@
 .bookingGreyBG {
     background-color: #F5F3F0;
     border-bottom: black solid 1px;
+}
+
+.bookingGreyBG p {
+    padding: 3px;
 }
 
 .bookingContainer :nth-child(3) p {
@@ -99,6 +106,7 @@
 
 .roomInfo li {
     margin: 0px 0px 0px 10px;
+    list-style-type: none;
 }
 
 

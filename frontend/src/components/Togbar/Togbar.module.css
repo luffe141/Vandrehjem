@@ -1,0 +1,75 @@
+* {
+    box-sizing: border-box;
+}
+
+.flexContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100vw;
+}
+
+.heroBanner{
+    height: 500px;
+    width: 100vw;
+}
+
+.heroBanner img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.infoBox {
+    width: 92%;
+    border: black solid 2px;
+    margin: 15px auto;
+    padding: 5px;
+    background-color: #eacdb8;
+}
+
+/* --- Slideshow delen --- */
+
+.imageSliderDiv {
+    margin: 10px 0px 5px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;   
+    width: 100vw;
+}
+
+.galleryImgContainer {
+    width: 600px;
+    height: 400px;
+    border: black solid 2px;
+}
+
+.galleryImgContainer img {
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+}
+
+.galleryBtn {
+    height: 40px;
+    align-self: center;
+    background-color: #D0A98F;
+}
+
+.galleryBtn:hover{
+    background-color: #805941;
+    cursor: pointer;
+    
+}
+
+@media screen and (max-width: 768px)  {
+    .galleryImgContainer {
+        width: 100vw;
+    }
+    .imageSliderDiv :nth-child(-n + 1 of button.galleryBtn) {
+        display: none;
+    }
+    .infoBox {
+        margin: 0px 0px;
+        width: 96%;
+        padding: 10px;
+    }
+}
